@@ -23,16 +23,16 @@ bool ModulePlayer::Start()
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(4, 3, 8);
 	car.chassis_offset.Set(0, 3, 0);
-	car.mass = 200.0f;
-	car.suspensionStiffness = 15.88f;
+	car.mass = 1000.0f;
+	car.suspensionStiffness = 5.88f;
 	car.suspensionCompression = 0.83f;
-	car.suspensionDamping = 0.88f;
-	car.maxSuspensionTravelCm = 1000.0f;
+	car.suspensionDamping = 0.3f;
+	car.maxSuspensionTravelCm = 200.0f;
 	car.frictionSlip = 50.5;
-	car.maxSuspensionForce = 6000.0f;
+	car.maxSuspensionForce = 7000.0f;
 
 	// Wheel properties ---------------------------------------
-	float connection_height = 1.0f;
+	float connection_height = 2.0f;
 	float wheel_radius = 1.5f;
 	float wheel_width = 1.5f;
 	float suspensionRestLength = 1.5f;
@@ -153,6 +153,17 @@ update_status ModulePlayer::Update(float dt)
 		}
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE)
+	{
+		if (vehicle->GetKmh() > 0)
+		{
+			acceleration = vehicle->info.mass * -10 * 0.1f;
+		}
+		else if (vehicle->GetKmh() < 0)
+		{
+			acceleration = -vehicle->info.mass * -10 * 0.1f;
+		}
+	}
 
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
