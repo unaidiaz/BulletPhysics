@@ -43,4 +43,11 @@ public:
 	PhysMotor3D* right_wheel;
 
 	Plane* ground;
+
+	Cube wall1;
+	Cube wall2;
+	Cube wall3;
+	Cube wall4;
+
+	Cube ramp;
 };
