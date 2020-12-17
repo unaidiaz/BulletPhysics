@@ -57,6 +57,7 @@ bool ModuleSceneIntro::Start()
 	wall4.color.Set(0, 255, 0);
 	App->physics->AddBody(wall4, 0);
 
+	/*
 	ramp.SetPos(-15, 1, 0);
 	ramp.SetRotation(60.0f, { 1,0,0 });
 	ramp.size.x = 20;
@@ -64,7 +65,57 @@ bool ModuleSceneIntro::Start()
 	ramp.size.z = 2;
 	ramp.axis = true;
 	ramp.color.Set(0, 0, 255);
-	App->physics->AddBody(ramp, 0);
+	App->physics->AddBody(ramp, 0);*/
+	//-------------------------
+
+	//Limits-------------------
+	limits[0].SetPos(10, 0, 30);
+	limits[0].size.x = 3;
+	limits[0].size.y = 10;
+	limits[0].size.z = 50;
+	limits[0].axis = true;
+	limits[0].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[0], 0);
+
+	limits[1].SetPos(40, 0, 55);
+	limits[1].size.x = 60;
+	limits[1].size.y = 10;
+	limits[1].size.z = 3;
+	limits[1].axis = true;
+	limits[1].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[1], 0);
+
+	limits[2].SetPos(-10, 0, 40);
+	limits[2].size.x = 3;
+	limits[2].size.y = 10;
+	limits[2].size.z = 70;
+	limits[2].axis = true;
+	limits[2].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[2], 0);
+
+	limits[3].SetPos(20, 0, 75);
+	limits[3].size.x = 60;
+	limits[3].size.y = 10;
+	limits[3].size.z = 3;
+	limits[3].axis = true;
+	limits[3].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[3], 0);
+
+	limits[4].SetPos(50, 0, 100);
+	limits[4].size.x = 3;
+	limits[4].size.y = 10;
+	limits[4].size.z = 50;
+	limits[4].axis = true;
+	limits[4].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[4], 0);
+
+	limits[5].SetPos(68, 0, 90);
+	limits[5].size.x = 3;
+	limits[5].size.y = 10;
+	limits[5].size.z = 70;
+	limits[5].axis = true;
+	limits[5].color.Set(0, 255, 255);
+	App->physics->AddBody(limits[5], 0);
 	//-------------------------
 
 	return ret;
@@ -89,6 +140,11 @@ update_status ModuleSceneIntro::Update(float dt)
 	wall4.Render();
 
 	ramp.Render();
+
+	for (int i = 0; i < 6; i++)
+	{
+		limits[i].Render();
+	}
 
 	return UPDATE_CONTINUE;
 }
