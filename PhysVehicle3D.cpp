@@ -1,6 +1,8 @@
 #include "PhysVehicle3D.h"
 #include "Primitive.h"
 #include "Bullet/include/btBulletDynamicsCommon.h"
+#include "Application.h"
+#include "ModulePlayer.h"
 
 // ----------------------------------------------------------------------------
 VehicleInfo::~VehicleInfo()
@@ -49,7 +51,18 @@ void PhysVehicle3D::Render()
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
 
+	Cube chassis2(3, 1, 4);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis2.transform);
+	btQuaternion q2 = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offset2(0, 4, -2);
+	offset2 = offset2.rotate(q2.getAxis(), q2.getAngle());
+	chassis2.color = Red;
+	chassis2.transform.M[12] += offset2.getX();
+	chassis2.transform.M[13] += offset2.getY();
+	chassis2.transform.M[14] += offset2.getZ();
+
 	chassis.Render();
+	chassis2.Render();
 }
 
 // ----------------------------------------------------------------------------
