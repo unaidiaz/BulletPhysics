@@ -50,4 +50,6 @@ public:
 	Cube wall4;
 
 	Cube ramp;
+
+	Cube limits[100];
 };
