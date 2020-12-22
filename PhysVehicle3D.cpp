@@ -91,15 +91,45 @@ void PhysVehicle3D::Render()
 	chassis5.transform.M[13] += offset5.getY();
 	chassis5.transform.M[14] += offset5.getZ();
 
-	Cube chassis6(4, 3, 4);
+	Cube chassis6(4, 4, 2);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis6.transform);
 	btQuaternion q6 = vehicle->getChassisWorldTransform().getRotation();
-	btVector3 offset6(0, 4, 2);
+	btVector3 offset6(0, 4, 1);
 	offset6 = offset6.rotate(q6.getAxis(), q6.getAngle());
 	chassis6.color = Red;
 	chassis6.transform.M[12] += offset6.getX();
 	chassis6.transform.M[13] += offset6.getY();
 	chassis6.transform.M[14] += offset6.getZ();
+
+	Cube chassis7(4, 2.5, 2);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis7.transform);
+	btQuaternion q7 = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offset7(0, 3, 3);
+	offset7 = offset7.rotate(q7.getAxis(), q7.getAngle());
+	chassis7.color = Red;
+	chassis7.transform.M[12] += offset7.getX();
+	chassis7.transform.M[13] += offset7.getY();
+	chassis7.transform.M[14] += offset7.getZ();
+
+	Cube chassis8(3.5, 3.5, 1.5);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis8.transform);
+	btQuaternion q8 = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offset8(0, 3.6, 1.3);
+	offset8 = offset8.rotate(q8.getAxis(), q8.getAngle());
+	chassis8.color = Blue;
+	chassis8.transform.M[12] += offset8.getX();
+	chassis8.transform.M[13] += offset8.getY();
+	chassis8.transform.M[14] += offset8.getZ();
+
+	Cube chassis9(4.05, 1.5, 1.5);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis9.transform);
+	btQuaternion q9 = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offset9(0, 4.8, 1);
+	offset9 = offset9.rotate(q9.getAxis(), q9.getAngle());
+	chassis9.color = Blue;
+	chassis9.transform.M[12] += offset9.getX();
+	chassis9.transform.M[13] += offset9.getY();
+	chassis9.transform.M[14] += offset9.getZ();
 
 	chassis.Render();
 	chassis2.Render();
@@ -107,6 +137,9 @@ void PhysVehicle3D::Render()
 	chassis4.Render();
 	chassis5.Render();
 	chassis6.Render();
+	chassis7.Render();
+	chassis8.Render();
+	chassis9.Render();
 }
 
 // ----------------------------------------------------------------------------
