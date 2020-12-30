@@ -21,7 +21,6 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(4, 0.5, 8);
 	car.chassis_offset.Set(0, 1.8, 0);
 	car.mass = 1500.0f;
 	car.suspensionStiffness = 4.0f;
@@ -140,7 +139,6 @@ update_status ModulePlayer::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT) {
 		brake = BRAKE_POWER;
 	}
-
 	
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
@@ -165,6 +163,15 @@ update_status ModulePlayer::Update(float dt)
 		}
 	}
 
+	int car = 1;
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
+	{
+		car++;
+	}
+	if (car == 3) {
+		car = 1;
+	}
+
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
@@ -177,6 +184,3 @@ update_status ModulePlayer::Update(float dt)
 
 	return UPDATE_CONTINUE;
 }
-
-
-
