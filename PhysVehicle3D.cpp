@@ -3,8 +3,6 @@
 #include "Bullet/include/btBulletDynamicsCommon.h"
 #include "Application.h"
 #include "ModulePlayer.h"
-#include "ModuleInput.h"
-#include "Module.h"
 
 // ----------------------------------------------------------------------------
 VehicleInfo::~VehicleInfo()
@@ -43,7 +41,7 @@ void PhysVehicle3D::Render()
 	}
 
 
-	Cube chassis(4, 0.5, 8);
+	Cube chassis(info.chassis_size.x, info.chassis_size.y, info.chassis_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis.transform);
 	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
 	btVector3 offset(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z);
@@ -186,36 +184,6 @@ void PhysVehicle3D::Render()
 	chassis11.Render();
 	chassis12.Render();
 	chassis13.Render();
-
-	/*if (App->player->car == 2)
-	{
-		Cube chassis(4, 0.5, 8);
-		chassis.color = Red;
-		Cube chassis2(4, 2, 0.5);
-		chassis2.color = Red;
-		Cube chassis3(3, 0.8, 0.2);
-		chassis3.color = Red;
-		Cube chassis4(0.5, 2, 4);
-		chassis4.color = Red;
-		Cube chassis5(0.5, 2, 4);
-		chassis5.color = Red;
-		Cube chassis6(4, 4, 2);
-		chassis6.color = Red;
-		Cube chassis7(4, 2.5, 2);
-		chassis7.color = Red;
-		Cube chassis8(3.5, 3.5, 1.5);
-		chassis8.color = Red;
-		Cube chassis9(4.05, 1.5, 1.5);
-		chassis9.color = Red;
-		Cube chassis10(0.7, 0.7, 0.7);
-		chassis10.color = Red;
-		Cube chassis11(0.7, 0.7, 0.7);
-		chassis11.color = Red;
-		Cube chassis12(0.7, 5, 0.7);
-		chassis12.color = Red;
-		Cube chassis13(0.7, 5, 0.7);
-		chassis13.color = Red;
-	}*/
 }
 
 // ----------------------------------------------------------------------------
