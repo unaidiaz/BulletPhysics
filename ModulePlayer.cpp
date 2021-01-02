@@ -21,91 +21,41 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	int select = 1;
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
-	{
-		select++;
-	}
-	if (select == 3) {
-		select = 1;
-	}
-	if (select == 1) {
+	car.chassis_size.Set(4, 0.5, 8);
+	car.chassis2_size.Set(4, 2, 0.5);
+	car.chassis3_size.Set(3, 0.8, 0.2);
+	car.chassis4_size.Set(0.5, 2, 4);
+	car.chassis5_size.Set(0.5, 2, 4);
+	car.chassis6_size.Set(4, 4, 2);
+	car.chassis7_size.Set(4, 2.5, 2);
+	car.chassis8_size.Set(3.5, 3.5, 1.5);
+	car.chassis9_size.Set(4.05, 1.5, 1.5);
+	car.chassis10_size.Set(0.7, 0.7, 0.7);
+	car.chassis11_size.Set(0.7, 0.7, 0.7);
+	car.chassis12_size.Set(0.7, 5, 0.7);
+	car.chassis13_size.Set(0.7, 5, 0.7);
 
-		car.chassis_size.Set(4, 0.5, 8);
-		car.chassis2_size.Set(4, 2, 0.5);
-		car.chassis3_size.Set(3, 0.8, 0.2);
-		car.chassis4_size.Set(0.5, 2, 4);
-		car.chassis5_size.Set(0.5, 2, 4);
-		car.chassis6_size.Set(4, 4, 2);
-		car.chassis7_size.Set(4, 2.5, 2);
-		car.chassis8_size.Set(3.5, 3.5, 1.5);
-		car.chassis9_size.Set(4.05, 1.5, 1.5);
-		car.chassis10_size.Set(0.7, 0.7, 0.7);
-		car.chassis11_size.Set(0.7, 0.7, 0.7);
-		car.chassis12_size.Set(0.7, 5, 0.7);
-		car.chassis13_size.Set(0.7, 5, 0.7);
+	car.chassis_offset.Set(0, 1.8, 0);
+	car.chassis2_offset.Set(0, 2.5, -4);
+	car.chassis3_offset.Set(0, 2, -4.2);
+	car.chassis4_offset.Set(1.75, 2.5, -2);
+	car.chassis5_offset.Set(-1.75, 2.5, -2);
+	car.chassis6_offset.Set(0, 4, 1);
+	car.chassis7_offset.Set(0, 3, 3);
+	car.chassis8_offset.Set(0, 3.6, 1.3);
+	car.chassis9_offset.Set(0, 5, 1);
+	car.chassis10_offset.Set(1.5, 3, 4);
+	car.chassis11_offset.Set(-1.5, 3, 4);
+	car.chassis12_offset.Set(1.6, 4.5, 0);
+	car.chassis13_offset.Set(-1.6, 4.5, 0);
 
-		car.chassis_offset.Set(0, 1.8, 0);
-		car.chassis2_offset.Set(0, 2.5, -4);
-		car.chassis3_offset.Set(0, 2, -4.2);
-		car.chassis4_offset.Set(1.75, 2.5, -2);
-		car.chassis5_offset.Set(-1.75, 2.5, -2);
-		car.chassis6_offset.Set(0, 4, 1);
-		car.chassis7_offset.Set(0, 3, 3);
-		car.chassis8_offset.Set(0, 3.6, 1.3);
-		car.chassis9_offset.Set(0, 5, 1);
-		car.chassis10_offset.Set(1.5, 3, 4);
-		car.chassis11_offset.Set(-1.5, 3, 4);
-		car.chassis12_offset.Set(1.6, 4.5, 0);
-		car.chassis13_offset.Set(-1.6, 4.5, 0);
-
-		car.mass = 1500.0f;
-		car.suspensionStiffness = 4.0f;
-		car.suspensionCompression = 0.5f;
-		car.suspensionDamping = 0.3f;
-		car.maxSuspensionTravelCm = 200.0f;
-		car.frictionSlip = 50.5;
-		car.maxSuspensionForce = 7000.0f;
-	}
-
-	if (select == 2) {
-
-		car.chassis_size.Set(4, 5, 8);
-		car.chassis2_size.Set(4, 2, 0.5);
-		car.chassis3_size.Set(3, 0.8, 0.2);
-		car.chassis4_size.Set(0.5, 2, 4);
-		car.chassis5_size.Set(0.5, 2, 4);
-		car.chassis6_size.Set(4, 4, 2);
-		car.chassis7_size.Set(4, 2.5, 2);
-		car.chassis8_size.Set(3.5, 3.5, 1.5);
-		car.chassis9_size.Set(4.05, 4, 1.5);
-		car.chassis10_size.Set(0.7, 0.7, 0.7);
-		car.chassis11_size.Set(0.7, 0.7, 0.7);
-		car.chassis12_size.Set(0.7, 5, 0.7);
-		car.chassis13_size.Set(0.7, 5, 0.7);
-
-		car.chassis_offset.Set(0, 1.8, 0);
-		car.chassis2_offset.Set(0, 2.5, -4);
-		car.chassis3_offset.Set(0, 2, -4.2);
-		car.chassis4_offset.Set(1.75, 2.5, -2);
-		car.chassis5_offset.Set(-1.75, 2.5, -2);
-		car.chassis6_offset.Set(0, 4, 1);
-		car.chassis7_offset.Set(0, 3, 3);
-		car.chassis8_offset.Set(0, 3.6, 1.3);
-		car.chassis9_offset.Set(0, 5, 1);
-		car.chassis10_offset.Set(1.5, 3, 4);
-		car.chassis11_offset.Set(-1.5, 3, 4);
-		car.chassis12_offset.Set(1.6, 4.5, 0);
-		car.chassis13_offset.Set(-1.6, 4.5, 0);
-
-		car.mass = 1500.0f;
-		car.suspensionStiffness = 4.0f;
-		car.suspensionCompression = 0.5f;
-		car.suspensionDamping = 0.3f;
-		car.maxSuspensionTravelCm = 200.0f;
-		car.frictionSlip = 50.5;
-		car.maxSuspensionForce = 7000.0f;
-	}
+	car.mass = 1500.0f;
+	car.suspensionStiffness = 4.0f;
+	car.suspensionCompression = 0.5f;
+	car.suspensionDamping = 0.3f;
+	car.maxSuspensionTravelCm = 200.0f;
+	car.frictionSlip = 50.5;
+	car.maxSuspensionForce = 7000.0f;
 
 	// Wheel properties ---------------------------------------
 	float connection_height = 2.0f;
@@ -189,6 +139,54 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update(float dt)
 {
+	VehicleInfo car;
+
+	int select = 1;
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
+	{
+		select++;
+	}
+	if (select == 3) {
+		select = 1;
+	}
+	if (select == 2) {
+
+		car.chassis_size.Set(4, 5, 8);
+		car.chassis2_size.Set(4, 2, 0.5);
+		car.chassis3_size.Set(3, 0.8, 0.2);
+		car.chassis4_size.Set(0.5, 2, 4);
+		car.chassis5_size.Set(0.5, 2, 4);
+		car.chassis6_size.Set(4, 4, 2);
+		car.chassis7_size.Set(4, 2.5, 2);
+		car.chassis8_size.Set(3.5, 3.5, 1.5);
+		car.chassis9_size.Set(4.05, 4, 1.5);
+		car.chassis10_size.Set(0.7, 0.7, 0.7);
+		car.chassis11_size.Set(0.7, 0.7, 0.7);
+		car.chassis12_size.Set(0.7, 5, 0.7);
+		car.chassis13_size.Set(0.7, 5, 0.7);
+
+		car.chassis_offset.Set(0, 1.8, 0);
+		car.chassis2_offset.Set(0, 2.5, -4);
+		car.chassis3_offset.Set(0, 2, -4.2);
+		car.chassis4_offset.Set(1.75, 2.5, -2);
+		car.chassis5_offset.Set(-1.75, 2.5, -2);
+		car.chassis6_offset.Set(0, 4, 1);
+		car.chassis7_offset.Set(0, 3, 3);
+		car.chassis8_offset.Set(0, 3.6, 1.3);
+		car.chassis9_offset.Set(0, 5, 1);
+		car.chassis10_offset.Set(1.5, 3, 4);
+		car.chassis11_offset.Set(-1.5, 3, 4);
+		car.chassis12_offset.Set(1.6, 4.5, 0);
+		car.chassis13_offset.Set(-1.6, 4.5, 0);
+
+		car.mass = 1500.0f;
+		car.suspensionStiffness = 4.0f;
+		car.suspensionCompression = 0.5f;
+		car.suspensionDamping = 0.3f;
+		car.maxSuspensionTravelCm = 200.0f;
+		car.frictionSlip = 50.5;
+		car.maxSuspensionForce = 7000.0f;
+	}
 	turn = acceleration = brake = 0.0f;
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
