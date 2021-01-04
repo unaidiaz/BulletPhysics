@@ -211,6 +211,8 @@ PhysBody3D* ModulePhysics3D::AddBody(const Sphere& sphere, float mass)
 	btRigidBody* body = new btRigidBody(rbInfo);
 	PhysBody3D* pbody = new PhysBody3D(body);
 
+	pbody->SetId(0);
+	
 	body->setUserPointer(pbody);
 	world->addRigidBody(body);
 	bodies.add(pbody);
@@ -239,6 +241,8 @@ PhysBody3D* ModulePhysics3D::AddBody(const Cube& cube, float mass)
 	btRigidBody* body = new btRigidBody(rbInfo);
 	PhysBody3D* pbody = new PhysBody3D(body);
 
+	pbody->SetId(0);
+
 	body->setUserPointer(pbody);
 	world->addRigidBody(body);
 	bodies.add(pbody);
@@ -265,6 +269,8 @@ PhysBody3D* ModulePhysics3D::AddBody(const Cylinder& cylinder, float mass)
 
 	btRigidBody* body = new btRigidBody(rbInfo);
 	PhysBody3D* pbody = new PhysBody3D(body);
+
+	pbody->SetId(0);
 
 	body->setUserPointer(pbody);
 	world->addRigidBody(body);
@@ -326,6 +332,10 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 	// ---------------------
 
 	PhysVehicle3D* pvehicle = new PhysVehicle3D(body, vehicle, info);
+
+	pvehicle->SetId(0);
+
+	body->setUserPointer(pvehicle);
 	world->addVehicle(vehicle);
 	vehicles.add(pvehicle);
 

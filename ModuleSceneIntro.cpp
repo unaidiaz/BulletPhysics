@@ -25,6 +25,16 @@ bool ModuleSceneIntro::Start()
 	//App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	//App->camera->LookAt(vec3(0, 0, 0));
 
+	sensor.SetPos(20, 0, 0);
+	sensor.size.x = 5;
+	sensor.size.y = 5;
+	sensor.size.z = 5;
+	sensor.axis = false;
+	sensor.color.Set(0, 0, 0);
+	physSensor = App->physics->AddBody(sensor, 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(2);
+
 	//WALLS----------------------
 	wall1.SetPos(250, 0, 0);
 	wall1.size.x = 5;
@@ -139,6 +149,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	wall2.Render();
 	wall3.Render();
 	wall4.Render();
+	sensor.Render();
 
 	ramp.Render();
 
@@ -154,4 +165,3 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
 
 }
-

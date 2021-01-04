@@ -44,6 +44,9 @@ public:
 
 	Plane* ground;
 
+	Cube sensor;
+	PhysBody3D* physSensor;
+
 	Cube wall1;
 	Cube wall2;
 	Cube wall3;
