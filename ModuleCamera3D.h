@@ -26,6 +26,8 @@ public:
 	
 	vec3 X, Y, Z, Position, Reference;
 
+	bool freeCamera;
+
 private:
 
 	mat4x4 ViewMatrix, ViewMatrixInverse;
