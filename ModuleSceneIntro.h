@@ -52,7 +52,7 @@ public:
 	Cube wall3;
 	Cube wall4;
 
-	Cube ramp;
+	Cube ramp[4];
 
 	Cube limits[100];
 };

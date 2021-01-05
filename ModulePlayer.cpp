@@ -123,7 +123,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(-406, 0, -15);
+	vehicle->SetPos(47, 0, 230);
 	vehicle->collision_listeners.add(this);
 	vehicle->SetId(1);
 
@@ -217,7 +217,6 @@ update_status ModulePlayer::Update(float dt)
 		brake = BRAKE_POWER;
 	}
 
-	
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
 
