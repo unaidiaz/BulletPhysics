@@ -257,6 +257,21 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
 	if (body2->id == 2)
 	{
-		vehicle->SetPos(0, 100, 0);
+		App->scene_intro->sensor[0].color.Set(0, 225, 0);
+	}
+
+	if (body2->id == 3)
+	{
+		App->scene_intro->sensor[1].color.Set(0, 225, 0);
+	}
+
+	if (body2->id == 4)
+	{
+		App->scene_intro->sensor[2].color.Set(0, 225, 0);
+	}
+
+	if (body2->id == 5)
+	{
+		App->scene_intro->sensor[3].color.Set(0, 225, 0);
 	}
 }

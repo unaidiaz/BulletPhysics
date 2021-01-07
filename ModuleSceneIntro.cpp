@@ -25,16 +25,6 @@ bool ModuleSceneIntro::Start()
 	//App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	//App->camera->LookAt(vec3(0, 0, 0));
 
-	sensor.SetPos(20, 0, 0);
-	sensor.size.x = 5;
-	sensor.size.y = 5;
-	sensor.size.z = 5;
-	sensor.axis = false;
-	sensor.color.Set(0, 0, 0);
-	physSensor = App->physics->AddBody(sensor, 0);
-	physSensor->SetAsSensor(true);
-	physSensor->SetId(2);
-
 	//Walls----------------------
 	wall1.SetPos(0, 0, 256);
 	wall1.size.x = 5;
@@ -103,7 +93,7 @@ bool ModuleSceneIntro::Start()
 
 	//Ramps-------------------
 	ramp[0].SetPos(316, 0, 324);
-	ramp[0].SetRotation(40.0f, { 0,0,1 });
+	ramp[0].SetRotation(25.0f, { 0,0,1 });
 	ramp[0].size.x = 30;
 	ramp[0].size.y = 2;
 	ramp[0].size.z = 40;
@@ -112,7 +102,7 @@ bool ModuleSceneIntro::Start()
 	App->physics->AddBody(ramp[0], 0);
 
 	ramp[1].SetPos(334, 0, 470);
-	ramp[1].SetRotation(-40.0f, { 0,0,1 });
+	ramp[1].SetRotation(-25.0f, { 0,0,1 });
 	ramp[1].size.x = 30;
 	ramp[1].size.y = 2;
 	ramp[1].size.z = 40;
@@ -377,6 +367,46 @@ bool ModuleSceneIntro::Start()
 	limits[35].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[35], 0);
 
+	sensor[0].SetPos(39, 0, 213);
+	sensor[0].size.x = 15;
+	sensor[0].size.y = 15;
+	sensor[0].size.z = 1;
+	sensor[0].axis = true;
+	sensor[0].color.Set(225, 0, 0);
+	physSensor = App->physics->AddBody(sensor[0], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(2);
+
+	sensor[1].SetPos(255, 0, 157);
+	sensor[1].size.x = 1;
+	sensor[1].size.y = 15;
+	sensor[1].size.z = 15;
+	sensor[1].axis = true;
+	sensor[1].color.Set(225, 0, 0);
+	physSensor = App->physics->AddBody(sensor[1], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(3);
+
+	sensor[2].SetPos(290, 0, 326);
+	sensor[2].size.x = 1;
+	sensor[2].size.y = 15;
+	sensor[2].size.z = 15;
+	sensor[2].axis = true;
+	sensor[2].color.Set(225, 0, 0);
+	physSensor = App->physics->AddBody(sensor[2], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(4);
+
+	sensor[3].SetPos(380, 0, 468);
+	sensor[3].size.x = 1;
+	sensor[3].size.y = 15;
+	sensor[3].size.z = 15;
+	sensor[3].axis = true;
+	sensor[3].color.Set(225, 0, 0);
+	physSensor = App->physics->AddBody(sensor[3], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(5);
+
 	return ret;
 }
 
@@ -397,16 +427,20 @@ update_status ModuleSceneIntro::Update(float dt)
 	wall2.Render();
 	wall3.Render();
 	wall4.Render();
-	sensor.Render();
 
 	for (int i = 0; i < 4; i++)
 	{
 		ramp[i].Render();
 	}
 
-	for (int i = 0; i < 36; i++)
+	for (int i = 0; i < 40; i++)
 	{
 		limits[i].Render();
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		sensor[i].Render();
 	}
 
 	return UPDATE_CONTINUE;
