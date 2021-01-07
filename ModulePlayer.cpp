@@ -251,8 +251,7 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->scene_intro->passedCheckpoints == 4)
 	{
-		App->scene_intro->lap++;
-		if (App->scene_intro->lap == 3)
+		if (App->scene_intro->lap == 4)
 		{
 			vehicle->SetPos(47, 0, 230);
 			App->scene_intro->lap = 0;
@@ -270,46 +269,38 @@ update_status ModulePlayer::Update(float dt)
 
 void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body2->id == 2)
+	if (body2->id == 2 && App->scene_intro->sensor[0].color.r)
 	{
-		if (App->scene_intro->sensor[0].color.r == 225)
-		{
-			App->audio->PlayFx(checkpointFx);
-			App->scene_intro->passedCheckpoints++;
-		}
+		App->scene_intro->lap++;
+
+		App->scene_intro->passedCheckpoints++;
 		App->scene_intro->sensor[0].color.Set(0, 225, 0);
+		App->scene_intro->sensor[1].color.Set(255, 0, 0);
+		App->scene_intro->sensor[2].color.Set(255, 0, 0);
+		App->scene_intro->sensor[3].color.Set(255, 0, 0);
 
 		App->audio->PlayFx(metaFx);
 		App->scene_intro->timer += 10;
 	}
-	else if (body2->id == 3)
+	else if (body2->id == 3 && App->scene_intro->sensor[1].color.r)
 	{
-		if (App->scene_intro->sensor[1].color.r == 225)
-		{
-			App->audio->PlayFx(checkpointFx);
-			App->scene_intro->passedCheckpoints++;
-		}
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
+		App->scene_intro->sensor[0].color.Set(255, 0, 0);
 		App->scene_intro->sensor[1].color.Set(0, 225, 0);
-
 		App->scene_intro->timer += 10;
 	}
-	else if (body2->id == 4)
+	else if (body2->id == 4 && App->scene_intro->sensor[2].color.r)
 	{
-		if (App->scene_intro->sensor[2].color.r == 225)
-		{
-			App->audio->PlayFx(checkpointFx);
-			App->scene_intro->passedCheckpoints++;
-		}
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
 		App->scene_intro->sensor[2].color.Set(0, 225, 0);
 		App->scene_intro->timer += 10;
 	}
-	else if (body2->id == 5)
+	else if (body2->id == 5 && App->scene_intro->sensor[3].color.r)
 	{
-		if (App->scene_intro->sensor[3].color.r == 225)
-		{
-			App->audio->PlayFx(checkpointFx);
-			App->scene_intro->passedCheckpoints++;
-		}
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
 		App->scene_intro->sensor[3].color.Set(0, 225, 0);
 		App->scene_intro->timer += 10;
 	}
