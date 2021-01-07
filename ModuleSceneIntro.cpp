@@ -443,6 +443,16 @@ update_status ModuleSceneIntro::Update(float dt)
 		sensor[i].Render();
 	}
 
+	if (frames % 60 == 0)
+	{
+		timer--;
+	}
+	if (timer <= 0)
+	{
+		SDL_Quit();
+	}
+	frames++;
+
 	return UPDATE_CONTINUE;
 }
 

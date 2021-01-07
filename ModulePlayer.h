@@ -28,4 +28,12 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
+
+	bool helper = true;
+	bool helper2 = false;
+	bool helper3 = false;
+	bool helper4 = false;
+
+	int checkpointFx;
+	int metaFx;
 };

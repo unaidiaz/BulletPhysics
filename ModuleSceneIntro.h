@@ -53,4 +53,8 @@ public:
 	Cube sensor[10];
 	Cube ramp[4];
 	Cube limits[100];
+
+	uint timer = 99;
+	uint frames = 0;
+	uint lap = 0;
 };

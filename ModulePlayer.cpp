@@ -18,6 +18,9 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player");
 
+	metaFx = App->audio->LoadFx("Assets/meta.wav");
+	checkpointFx = App->audio->LoadFx("Assets/checkpoint.wav");
+
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
@@ -247,7 +250,7 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->Render();
 
 	char title[80];
-	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
+	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
 
 	return UPDATE_CONTINUE;
@@ -255,23 +258,44 @@ update_status ModulePlayer::Update(float dt)
 
 void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body2->id == 2)
+	if (body2->id == 2 && helper == true)
 	{
 		App->scene_intro->sensor[0].color.Set(0, 225, 0);
-	}
+		App->scene_intro->sensor[1].color.Set(255, 0, 0);
+		App->scene_intro->sensor[2].color.Set(255, 0, 0);
+		App->scene_intro->sensor[3].color.Set(255, 0, 0);
 
-	if (body2->id == 3)
+		App->scene_intro->lap++;
+		App->audio->PlayFx(metaFx);
+
+		helper = false;
+		helper2 = true;
+		helper3 = true;
+		helper4 = true;
+	}
+	else if (body2->id == 3 && helper2 == true)
 	{
 		App->scene_intro->sensor[1].color.Set(0, 225, 0);
-	}
+		App->scene_intro->sensor[0].color.Set(255, 0, 0);
 
-	if (body2->id == 4)
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->timer += 10;
+
+		helper2 = false;
+		helper = true;
+	}
+	else if (body2->id == 4 && helper3 == true)
 	{
 		App->scene_intro->sensor[2].color.Set(0, 225, 0);
-	}
+		App->audio->PlayFx(checkpointFx);
 
-	if (body2->id == 5)
+		helper3 = false;
+	}
+	else if (body2->id == 5 && helper4 == true)
 	{
 		App->scene_intro->sensor[3].color.Set(0, 225, 0);
+		App->audio->PlayFx(checkpointFx);
+
+		helper4 = false;
 	}
 }
