@@ -189,7 +189,7 @@ update_status ModulePlayer::Update(float dt)
 		car.suspensionCompression = 0.5f;
 		car.suspensionDamping = 0.3f;
 		car.maxSuspensionTravelCm = 200.0f;
-		car.frictionSlip = 50.5;
+		car.frictionSlip = 10;
 		car.maxSuspensionForce = 7000.0f;
 	}
 	turn = acceleration = brake = 0.0f;
@@ -249,6 +249,18 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
+	if (App->scene_intro->passedCheckpoints == 4)
+	{
+		App->scene_intro->lap++;
+		if (App->scene_intro->lap == 3)
+		{
+			vehicle->SetPos(47, 0, 230);
+			App->scene_intro->lap = 0;
+		}
+		App->scene_intro->passedCheckpoints = 0;
+	}
+
+
 	char title[80];
 	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
@@ -258,44 +270,47 @@ update_status ModulePlayer::Update(float dt)
 
 void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body2->id == 2 && helper == true)
+	if (body2->id == 2)
 	{
+		if (App->scene_intro->sensor[0].color.r == 225)
+		{
+			App->audio->PlayFx(checkpointFx);
+			App->scene_intro->passedCheckpoints++;
+		}
 		App->scene_intro->sensor[0].color.Set(0, 225, 0);
-		App->scene_intro->sensor[1].color.Set(255, 0, 0);
-		App->scene_intro->sensor[2].color.Set(255, 0, 0);
-		App->scene_intro->sensor[3].color.Set(255, 0, 0);
 
-		App->scene_intro->lap++;
 		App->audio->PlayFx(metaFx);
-
-		helper = false;
-		helper2 = true;
-		helper3 = true;
-		helper4 = true;
-	}
-	else if (body2->id == 3 && helper2 == true)
-	{
-		App->scene_intro->sensor[1].color.Set(0, 225, 0);
-		App->scene_intro->sensor[0].color.Set(255, 0, 0);
-
-		App->audio->PlayFx(checkpointFx);
 		App->scene_intro->timer += 10;
-
-		helper2 = false;
-		helper = true;
 	}
-	else if (body2->id == 4 && helper3 == true)
+	else if (body2->id == 3)
 	{
+		if (App->scene_intro->sensor[1].color.r == 225)
+		{
+			App->audio->PlayFx(checkpointFx);
+			App->scene_intro->passedCheckpoints++;
+		}
+		App->scene_intro->sensor[1].color.Set(0, 225, 0);
+
+		App->scene_intro->timer += 10;
+	}
+	else if (body2->id == 4)
+	{
+		if (App->scene_intro->sensor[2].color.r == 225)
+		{
+			App->audio->PlayFx(checkpointFx);
+			App->scene_intro->passedCheckpoints++;
+		}
 		App->scene_intro->sensor[2].color.Set(0, 225, 0);
-		App->audio->PlayFx(checkpointFx);
-
-		helper3 = false;
+		App->scene_intro->timer += 10;
 	}
-	else if (body2->id == 5 && helper4 == true)
+	else if (body2->id == 5)
 	{
+		if (App->scene_intro->sensor[3].color.r == 225)
+		{
+			App->audio->PlayFx(checkpointFx);
+			App->scene_intro->passedCheckpoints++;
+		}
 		App->scene_intro->sensor[3].color.Set(0, 225, 0);
-		App->audio->PlayFx(checkpointFx);
-
-		helper4 = false;
+		App->scene_intro->timer += 10;
 	}
 }

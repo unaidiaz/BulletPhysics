@@ -25,6 +25,8 @@ bool ModuleSceneIntro::Start()
 	//App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	//App->camera->LookAt(vec3(0, 0, 0));
 
+	passedCheckpoints = 0;
+
 	//Walls----------------------
 	wall1.SetPos(0, 0, 256);
 	wall1.size.x = 5;
@@ -421,6 +423,20 @@ bool ModuleSceneIntro::CleanUp()
 // Update
 update_status ModuleSceneIntro::Update(float dt)
 {
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) 
+	{
+		passedCheckpoints = 4;
+	}
+
+	if (passedCheckpoints == 4)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			sensor[i].color.Set(225, 0, 0);
+		}
+	}
+
+
 	ground->Render();
 
 	wall1.Render();
@@ -442,6 +458,15 @@ update_status ModuleSceneIntro::Update(float dt)
 	{
 		sensor[i].Render();
 	}
+
+	if (passedCheckpoints == 4)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			sensor[i].color.Set(225, 0, 0);
+		}
+	}
+
 
 	if (frames % 60 == 0)
 	{

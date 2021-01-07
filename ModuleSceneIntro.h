@@ -57,4 +57,6 @@ public:
 	uint timer = 99;
 	uint frames = 0;
 	uint lap = 0;
+
+	int passedCheckpoints;
 };
