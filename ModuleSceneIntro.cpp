@@ -26,7 +26,7 @@ bool ModuleSceneIntro::Start()
 	//App->camera->LookAt(vec3(0, 0, 0));
 
 	passedCheckpoints = 0;
-
+	
 	//Walls----------------------
 	wall1.SetPos(0, 0, 256);
 	wall1.size.x = 5;
@@ -427,15 +427,6 @@ update_status ModuleSceneIntro::Update(float dt)
 	{
 		passedCheckpoints = 4;
 	}
-
-	if (passedCheckpoints == 4)
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			sensor[i].color.Set(225, 0, 0);
-		}
-	}
-
 
 	ground->Render();
 

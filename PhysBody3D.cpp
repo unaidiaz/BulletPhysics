@@ -62,3 +62,10 @@ void PhysBody3D::SetId(int id)
 {
 	this->id = id;
 }
+
+void PhysBody3D::SetRotation(btQuaternion q)
+{
+	btTransform t = body->getWorldTransform();
+	t.setRotation(q);
+	body->setWorldTransform(t);
+}

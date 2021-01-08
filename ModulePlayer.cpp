@@ -129,6 +129,9 @@ bool ModulePlayer::Start()
 	vehicle->SetPos(47, 0, 230);
 	vehicle->collision_listeners.add(this);
 	vehicle->SetId(1);
+	btQuaternion q;
+	q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+	vehicle->SetRotation(q);
 
 	return true;
 }
@@ -259,10 +262,16 @@ update_status ModulePlayer::Update(float dt)
 		App->scene_intro->passedCheckpoints = 0;
 	}
 
-
 	char title[80];
 	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
+
+	btVector3 hit;
+	hit = vehicle->vehicle->getChassisWorldTransform().getOrigin();
+	if (hit.getY() > 10)
+	{
+		//Donde se podrá controlar el coche en el aire
+	}
 
 	return UPDATE_CONTINUE;
 }
