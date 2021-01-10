@@ -95,7 +95,7 @@ bool ModuleSceneIntro::Start()
 
 	//Ramps-------------------
 	ramp[0].SetPos(316, 0, 324);
-	ramp[0].SetRotation(25.0f, { 0,0,1 });
+	ramp[0].SetRotation(15.0f, { 0,0,1 });
 	ramp[0].size.x = 30;
 	ramp[0].size.y = 2;
 	ramp[0].size.z = 40;
@@ -104,7 +104,7 @@ bool ModuleSceneIntro::Start()
 	App->physics->AddBody(ramp[0], 0);
 
 	ramp[1].SetPos(334, 0, 470);
-	ramp[1].SetRotation(-25.0f, { 0,0,1 });
+	ramp[1].SetRotation(-15.0f, { 0,0,1 });
 	ramp[1].size.x = 30;
 	ramp[1].size.y = 2;
 	ramp[1].size.z = 40;

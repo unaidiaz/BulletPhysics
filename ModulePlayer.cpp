@@ -126,7 +126,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(47, 0, 230);
+	vehicle->SetPos(40, 0, 230);
 	vehicle->collision_listeners.add(this);
 	vehicle->SetId(1);
 	btQuaternion q;
@@ -256,7 +256,7 @@ update_status ModulePlayer::Update(float dt)
 	{
 		if (App->scene_intro->lap == 4)
 		{
-			vehicle->SetPos(47, 0, 230);
+			vehicle->SetPos(0, 0, 230);
 			App->scene_intro->lap = 0;
 		}
 		App->scene_intro->passedCheckpoints = 0;
