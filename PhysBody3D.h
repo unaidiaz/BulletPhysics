@@ -7,6 +7,11 @@ class btQuaternion;
 class btRigidBody;
 class Module;
 
+struct Euler
+{
+	float roll, pitch, yaw;
+};
+
 // =================================================
 struct PhysBody3D
 {
@@ -20,6 +25,7 @@ public:
 	void SetTransform(const float* matrix) const;
 	void SetPos(float x, float y, float z);
 	void SetRotation(btQuaternion q);
+	Euler GetEulerAngles(btQuaternion q);
 	void SetAsSensor(bool is_sensor);
 	void SetId(int id);
 

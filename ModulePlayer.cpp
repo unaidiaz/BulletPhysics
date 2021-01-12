@@ -268,9 +268,39 @@ update_status ModulePlayer::Update(float dt)
 
 	btVector3 hit;
 	hit = vehicle->vehicle->getChassisWorldTransform().getOrigin();
-	if (hit.getY() > 10)
+	if (hit.getY() > 5)
 	{
-		//Donde se podrá controlar el coche en el aire
+		Euler angles = vehicle->GetEulerAngles(vehicle->vehicle->getChassisWorldTransform().getRotation());
+
+		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+		{
+			angles.yaw -= (DEGTORAD * 0.5);
+			btQuaternion q;
+			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+			vehicle->SetRotation(q);
+		}
+		else if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+		{
+			angles.yaw += (DEGTORAD * 0.5);
+			btQuaternion q;
+			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+			vehicle->SetRotation(q);
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+		{
+			angles.roll += (DEGTORAD * 0.5);
+			btQuaternion q;
+			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+			vehicle->SetRotation(q);
+		}
+		else if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+		{
+			angles.roll -= (DEGTORAD * 0.5);
+			btQuaternion q;
+			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+			vehicle->SetRotation(q);
+		}
 	}
 
 	return UPDATE_CONTINUE;
