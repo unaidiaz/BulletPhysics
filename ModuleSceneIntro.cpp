@@ -370,21 +370,23 @@ bool ModuleSceneIntro::Start()
 	App->physics->AddBody(limits[35], 0);
 
 	sensor[0].SetPos(39, 0, 213);
-	sensor[0].size.x = 15;
+	sensor[0].size.x = 40;
 	sensor[0].size.y = 15;
 	sensor[0].size.z = 1;
-	sensor[0].axis = true;
-	sensor[0].color.Set(225, 0, 0);
+	sensor[0].axis = false;
+	sensor[0].wire = true;
+	sensor[0].color.Set(225, 225, 0);
 	physSensor = App->physics->AddBody(sensor[0], 0);
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(2);
 
-	sensor[1].SetPos(255, 0, 157);
+	sensor[1].SetPos(255, 0, 150);
 	sensor[1].size.x = 1;
 	sensor[1].size.y = 15;
-	sensor[1].size.z = 15;
-	sensor[1].axis = true;
-	sensor[1].color.Set(225, 0, 0);
+	sensor[1].size.z = 30;
+	sensor[1].axis = false;
+	sensor[1].wire = false;
+	sensor[1].color.Set(225, 225, 0);
 	physSensor = App->physics->AddBody(sensor[1], 0);
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(3);
@@ -393,8 +395,9 @@ bool ModuleSceneIntro::Start()
 	sensor[2].size.x = 1;
 	sensor[2].size.y = 15;
 	sensor[2].size.z = 15;
-	sensor[2].axis = true;
-	sensor[2].color.Set(225, 0, 0);
+	sensor[2].axis = false;
+	sensor[2].wire = true;
+	sensor[2].color.Set(225, 225, 0);
 	physSensor = App->physics->AddBody(sensor[2], 0);
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(4);
@@ -403,11 +406,56 @@ bool ModuleSceneIntro::Start()
 	sensor[3].size.x = 1;
 	sensor[3].size.y = 15;
 	sensor[3].size.z = 15;
-	sensor[3].axis = true;
-	sensor[3].color.Set(225, 0, 0);
+	sensor[3].axis = false;
+	sensor[3].wire = true;
+	sensor[3].color.Set(225, 225, 0);
 	physSensor = App->physics->AddBody(sensor[3], 0);
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(5);
+
+	sensor[4].SetPos(300, 0, 420);
+	sensor[4].size.x = 1;
+	sensor[4].size.y = 15;
+	sensor[4].size.z = 15;
+	sensor[4].axis = false;
+	sensor[4].wire = true;
+	sensor[4].color.Set(225, 225, 0);
+	physSensor = App->physics->AddBody(sensor[4], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(6);
+
+	sensor[5].SetPos(39, 2, 350);
+	sensor[5].size.x = 10;
+	sensor[5].size.y = 1;
+	sensor[5].size.z = 15;
+	sensor[5].axis = false;
+	sensor[5].wire = false;
+	sensor[5].color.Set(0, 225, 0);
+	physSensor = App->physics->AddBody(sensor[5], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(7);
+
+	sensor[6].SetPos(380, 2, 220);
+	sensor[6].size.x = 15;
+	sensor[6].size.y = 1;
+	sensor[6].size.z = 10;
+	sensor[6].axis = false;
+	sensor[6].wire = false;
+	sensor[6].color.Set(0, 225, 0);
+	physSensor = App->physics->AddBody(sensor[6], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(7);
+
+	sensor[7].SetPos(230, 2, 435);
+	sensor[7].size.x = 15;
+	sensor[7].size.y = 1;
+	sensor[7].size.z = 10;
+	sensor[7].axis = false;
+	sensor[7].wire = false;
+	sensor[7].color.Set(0, 225, 0);
+	physSensor = App->physics->AddBody(sensor[7], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(7);
 
 	return ret;
 }
@@ -423,11 +471,6 @@ bool ModuleSceneIntro::CleanUp()
 // Update
 update_status ModuleSceneIntro::Update(float dt)
 {
-	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) 
-	{
-		passedCheckpoints = 4;
-	}
-
 	ground->Render();
 
 	wall1.Render();
@@ -450,23 +493,15 @@ update_status ModuleSceneIntro::Update(float dt)
 		sensor[i].Render();
 	}
 
-	if (passedCheckpoints == 4)
+	if (frames % 60 == 0 && timer > 0 && App->camera->finish == false)
 	{
-		for (int i = 0; i < 10; i++)
+		if (App->player->turboTimer > 0)
 		{
-			sensor[i].color.Set(225, 0, 0);
+			App->player->turboTimer--;
 		}
-	}
-
-
-	if (frames % 60 == 0)
-	{
 		timer--;
 	}
-	if (timer <= 0)
-	{
-		SDL_Quit();
-	}
+
 	frames++;
 
 	return UPDATE_CONTINUE;

@@ -28,6 +28,7 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
+	uint turboTimer;
 
 	int checkpointFx;
 	int metaFx;

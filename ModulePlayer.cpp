@@ -61,7 +61,7 @@ bool ModulePlayer::Start()
 	car.maxSuspensionForce = 7000.0f;
 
 	// Wheel properties ---------------------------------------
-	float connection_height = 2.0f;
+	float connection_height = 3.0f;
 	float wheel_radius = 1.5f;
 	float wheel_width = 1.5f;
 	float suspensionRestLength = 1.5f;
@@ -133,6 +133,8 @@ bool ModulePlayer::Start()
 	q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
 	vehicle->SetRotation(q);
 
+	turboTimer = 0;
+
 	return true;
 }
 
@@ -149,100 +151,147 @@ update_status ModulePlayer::Update(float dt)
 {
 	VehicleInfo car;
 
-	int select = 1;
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
-	{
-		select++;
-	}
-	if (select == 3) {
-		select = 1;
-	}
-	if (select == 2) {
+	car.chassis_size.Set(4, 5, 8);
+	car.chassis2_size.Set(4, 2, 0.5);
+	car.chassis3_size.Set(3, 0.8, 0.2);
+	car.chassis4_size.Set(0.5, 2, 4);
+	car.chassis5_size.Set(0.5, 2, 4);
+	car.chassis6_size.Set(4, 4, 2);
+	car.chassis7_size.Set(4, 2.5, 2);
+	car.chassis8_size.Set(3.5, 3.5, 1.5);
+	car.chassis9_size.Set(4.05, 4, 1.5);
+	car.chassis10_size.Set(0.7, 0.7, 0.7);
+	car.chassis11_size.Set(0.7, 0.7, 0.7);
+	car.chassis12_size.Set(0.7, 5, 0.7);
+	car.chassis13_size.Set(0.7, 5, 0.7);
 
-		car.chassis_size.Set(4, 5, 8);
-		car.chassis2_size.Set(4, 2, 0.5);
-		car.chassis3_size.Set(3, 0.8, 0.2);
-		car.chassis4_size.Set(0.5, 2, 4);
-		car.chassis5_size.Set(0.5, 2, 4);
-		car.chassis6_size.Set(4, 4, 2);
-		car.chassis7_size.Set(4, 2.5, 2);
-		car.chassis8_size.Set(3.5, 3.5, 1.5);
-		car.chassis9_size.Set(4.05, 4, 1.5);
-		car.chassis10_size.Set(0.7, 0.7, 0.7);
-		car.chassis11_size.Set(0.7, 0.7, 0.7);
-		car.chassis12_size.Set(0.7, 5, 0.7);
-		car.chassis13_size.Set(0.7, 5, 0.7);
+	car.chassis_offset.Set(0, 1.8, 0);
+	car.chassis2_offset.Set(0, 2.5, -4);
+	car.chassis3_offset.Set(0, 2, -4.2);
+	car.chassis4_offset.Set(1.75, 2.5, -2);
+	car.chassis5_offset.Set(-1.75, 2.5, -2);
+	car.chassis6_offset.Set(0, 4, 1);
+	car.chassis7_offset.Set(0, 3, 3);
+	car.chassis8_offset.Set(0, 3.6, 1.3);
+	car.chassis9_offset.Set(0, 5, 1);
+	car.chassis10_offset.Set(1.5, 3, 4);
+	car.chassis11_offset.Set(-1.5, 3, 4);
+	car.chassis12_offset.Set(1.6, 4.5, 0);
+	car.chassis13_offset.Set(-1.6, 4.5, 0);
 
-		car.chassis_offset.Set(0, 1.8, 0);
-		car.chassis2_offset.Set(0, 2.5, -4);
-		car.chassis3_offset.Set(0, 2, -4.2);
-		car.chassis4_offset.Set(1.75, 2.5, -2);
-		car.chassis5_offset.Set(-1.75, 2.5, -2);
-		car.chassis6_offset.Set(0, 4, 1);
-		car.chassis7_offset.Set(0, 3, 3);
-		car.chassis8_offset.Set(0, 3.6, 1.3);
-		car.chassis9_offset.Set(0, 5, 1);
-		car.chassis10_offset.Set(1.5, 3, 4);
-		car.chassis11_offset.Set(-1.5, 3, 4);
-		car.chassis12_offset.Set(1.6, 4.5, 0);
-		car.chassis13_offset.Set(-1.6, 4.5, 0);
+	car.mass = 5500.0f;
+	car.suspensionStiffness = 4.0f;
+	car.suspensionCompression = 6.0f;
+	car.suspensionDamping = 0.01f;
+	car.maxSuspensionTravelCm = 700.0f;
+	car.frictionSlip = 8000;
+	car.maxSuspensionForce = 10000.0f;
 
-		car.mass = 1500.0f;
-		car.suspensionStiffness = 4.0f;
-		car.suspensionCompression = 0.5f;
-		car.suspensionDamping = 0.3f;
-		car.maxSuspensionTravelCm = 200.0f;
-		car.frictionSlip = 10;
-		car.maxSuspensionForce = 7000.0f;
-	}
 	turn = acceleration = brake = 0.0f;
 
-	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-	{
-		acceleration = MAX_ACCELERATION;
-	}
-
-	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-	{
-		if(turn < TURN_DEGREES)
-			turn +=  TURN_DEGREES;
-	}
-
-	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-	{
-		if(turn > -TURN_DEGREES)
-			turn -= TURN_DEGREES;
-	}
-
-	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-	{
-		acceleration = -MAX_ACCELERATION;
-	}
-
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT) {
-		brake = BRAKE_POWER;
-	}
-
-	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
+	if (App->camera->finish == false)
 	{
 
-		if ((jump_cooldown.Read() * 0.001) >= JUMP_COOLDOWN)
+		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		{
-			vehicle->Push(0.0f, JUMP_IMPULSE, 0.0f);
-			jump_cooldown.Start();
-			
+			acceleration = MAX_ACCELERATION * 2;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+		{
+			if (turn < TURN_DEGREES)
+				turn += TURN_DEGREES;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+		{
+			if (turn > -TURN_DEGREES)
+				turn -= TURN_DEGREES;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+		{
+			acceleration = -MAX_ACCELERATION * 2;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT) {
+			brake = BRAKE_POWER;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+		{
+
+			if ((jump_cooldown.Read() * 0.001) >= JUMP_COOLDOWN)
+			{
+				vehicle->Push(0.0f, JUMP_IMPULSE * 3, 0.0f);
+				jump_cooldown.Start();
+
+			}
+		}
+
+		if (turboTimer > 0)
+		{
+			acceleration = MAX_ACCELERATION * 5;
+		}
+
+		if (App->scene_intro->lap == 3)
+		{
+			App->camera->finish = true;
+			//Victory sound
+		}
+		if (App->scene_intro->timer <= 0)
+		{
+			App->camera->finish = true;
+			//Lose sound
+		}
+
+		btVector3 airControl;
+		airControl = vehicle->vehicle->getChassisWorldTransform().getOrigin();
+		if (airControl.getY() > 5)
+		{
+			Euler angles = vehicle->GetEulerAngles(vehicle->vehicle->getChassisWorldTransform().getRotation());
+
+			if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+			{
+				angles.pitch -= (DEGTORAD * 2);
+				btQuaternion q;
+				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+				vehicle->SetRotation(q);
+			}
+			else if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+			{
+				angles.pitch += (DEGTORAD * 2);
+				btQuaternion q;
+				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+				vehicle->SetRotation(q);
+			}
+
+			if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+			{
+				angles.roll += (DEGTORAD * 1);
+				btQuaternion q;
+				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+				vehicle->SetRotation(q);
+			}
+			else if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+			{
+				angles.roll -= (DEGTORAD * 1);
+				btQuaternion q;
+				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
+				vehicle->SetRotation(q);
+			}
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE)
+	if ((App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE) || App->camera->finish == true)
 	{
 		if (vehicle->GetKmh() > 0)
 		{
-			acceleration = vehicle->info.mass * -10 * 0.1f;
+			acceleration = vehicle->info.mass * -30 * 0.1f;
 		}
 		else if (vehicle->GetKmh() < 0)
 		{
-			acceleration = -vehicle->info.mass * -10 * 0.1f;
+			acceleration = -vehicle->info.mass * -30 * 0.1f;
 		}
 	}
 
@@ -252,55 +301,13 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
-	if (App->scene_intro->passedCheckpoints == 4)
-	{
-		if (App->scene_intro->lap == 4)
-		{
-			vehicle->SetPos(0, 0, 230);
-			App->scene_intro->lap = 0;
-		}
-		App->scene_intro->passedCheckpoints = 0;
-	}
-
 	char title[80];
 	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
 
-	btVector3 hit;
-	hit = vehicle->vehicle->getChassisWorldTransform().getOrigin();
-	if (hit.getY() > 5)
+	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
 	{
-		Euler angles = vehicle->GetEulerAngles(vehicle->vehicle->getChassisWorldTransform().getRotation());
-
-		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		{
-			angles.yaw -= (DEGTORAD * 0.5);
-			btQuaternion q;
-			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
-			vehicle->SetRotation(q);
-		}
-		else if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		{
-			angles.yaw += (DEGTORAD * 0.5);
-			btQuaternion q;
-			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
-			vehicle->SetRotation(q);
-		}
-
-		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		{
-			angles.roll += (DEGTORAD * 0.5);
-			btQuaternion q;
-			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
-			vehicle->SetRotation(q);
-		}
-		else if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		{
-			angles.roll -= (DEGTORAD * 0.5);
-			btQuaternion q;
-			q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
-			vehicle->SetRotation(q);
-		}
+		App->camera->finish = !App->camera->finish;
 	}
 
 	return UPDATE_CONTINUE;
@@ -308,39 +315,56 @@ update_status ModulePlayer::Update(float dt)
 
 void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	if (body2->id == 2 && App->scene_intro->sensor[0].color.r)
+	if (body2->id == 2 && App->scene_intro->sensor[0].wire == false)
 	{
-		App->scene_intro->lap++;
+		if (App->scene_intro->passedCheckpoints == 3)
+		{
+			App->scene_intro->lap++;
+			App->scene_intro->sensor[0].wire = true;
+			App->audio->PlayFx(metaFx);
+			App->scene_intro->timer += 7;
+			App->scene_intro->passedCheckpoints = 0;
+			App->scene_intro->sensor[1].wire = false;
+		}
+	}
+	else if (body2->id == 3 && App->scene_intro->sensor[1].wire == false)
+	{
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
+		App->scene_intro->sensor[1].wire = true;
+		App->scene_intro->timer += 7;
+		App->scene_intro->sensor[2].wire = false;
+	}
+	else if (body2->id == 4 && App->scene_intro->sensor[2].wire == false)
+	{
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
+		App->scene_intro->sensor[2].wire = true;
+		App->scene_intro->timer += 7;
+		App->scene_intro->sensor[3].wire = false;
+		App->scene_intro->sensor[4].wire = false;
+	}
+	else if (body2->id == 5 && App->scene_intro->sensor[3].wire == false)
+	{
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
+		App->scene_intro->sensor[3].wire = true;
+		App->scene_intro->timer += 7;
+		App->scene_intro->sensor[4].wire = true;
+		App->scene_intro->sensor[0].wire = false;
+	}
+	else if (body2->id == 6 && App->scene_intro->sensor[4].wire == false)
+	{
+		App->audio->PlayFx(checkpointFx);
+		App->scene_intro->passedCheckpoints++;
+		App->scene_intro->sensor[4].wire = true;
+		App->scene_intro->timer += 7;
+		App->scene_intro->sensor[3].wire = true;
+		App->scene_intro->sensor[0].wire = false;
+	}
+	else if (body2->id == 7)
+	{
+		turboTimer = 1;
+	}
 
-		App->scene_intro->passedCheckpoints++;
-		App->scene_intro->sensor[0].color.Set(0, 225, 0);
-		App->scene_intro->sensor[1].color.Set(255, 0, 0);
-		App->scene_intro->sensor[2].color.Set(255, 0, 0);
-		App->scene_intro->sensor[3].color.Set(255, 0, 0);
-
-		App->audio->PlayFx(metaFx);
-		App->scene_intro->timer += 10;
-	}
-	else if (body2->id == 3 && App->scene_intro->sensor[1].color.r)
-	{
-		App->audio->PlayFx(checkpointFx);
-		App->scene_intro->passedCheckpoints++;
-		App->scene_intro->sensor[0].color.Set(255, 0, 0);
-		App->scene_intro->sensor[1].color.Set(0, 225, 0);
-		App->scene_intro->timer += 10;
-	}
-	else if (body2->id == 4 && App->scene_intro->sensor[2].color.r)
-	{
-		App->audio->PlayFx(checkpointFx);
-		App->scene_intro->passedCheckpoints++;
-		App->scene_intro->sensor[2].color.Set(0, 225, 0);
-		App->scene_intro->timer += 10;
-	}
-	else if (body2->id == 5 && App->scene_intro->sensor[3].color.r)
-	{
-		App->audio->PlayFx(checkpointFx);
-		App->scene_intro->passedCheckpoints++;
-		App->scene_intro->sensor[3].color.Set(0, 225, 0);
-		App->scene_intro->timer += 10;
-	}
 }
