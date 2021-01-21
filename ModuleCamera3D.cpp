@@ -53,8 +53,8 @@ update_status ModuleCamera3D::Update(float dt)
 			freeCamera = !freeCamera;
 		}
 
-		if (freeCamera == false) {
-
+		if (freeCamera == false)
+		{
 			Position.x = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getX() - 15 * App->player->vehicle->vehicle->getForwardVector().getX();
 			Position.y = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getY() + 10 * App->player->vehicle->vehicle->getUpAxis();
 			Position.z = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getZ() - 20 * App->player->vehicle->vehicle->getForwardVector().getZ();
@@ -62,6 +62,8 @@ update_status ModuleCamera3D::Update(float dt)
 			float z_value = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getZ() + 10 * App->player->vehicle->vehicle->getForwardVector().getZ();
 
 			LookAt(vec3(x_value, 1, z_value));
+		}
+		else if (freeCamera == true) {
 
 			vec3 newPos(0, 0, 0);
 			float speed = 300.0f * dt;

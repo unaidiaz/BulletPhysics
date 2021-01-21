@@ -211,11 +211,36 @@ update_status ModulePlayer::Update(float dt)
 
 		if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
 		{
-			acceleration = -MAX_ACCELERATION * 2;
+			if (vehicle->GetKmh() > 0)
+			{
+				brake = BRAKE_POWER / 2;
+			}
+			else
+			{
+				acceleration = -MAX_ACCELERATION * 2;
+			}
 		}
 
-		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT) {
+		if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT) 
+		{
 			brake = BRAKE_POWER;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) 
+		{
+			turn = 0;
+			acceleration = 0;
+			vehicle->SetPos(40, 0, 230);
+			btQuaternion q;
+			q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+			vehicle->SetRotation(q);
+			App->scene_intro->lap = 0;
+			App->scene_intro->passedCheckpoints = 0;
+			App->scene_intro->timer = 400;
+			App->scene_intro->sensor[0].wire = true;
+			App->scene_intro->sensor[1].wire = false;
+			App->scene_intro->sensor[2].wire = true;
+			App->scene_intro->sensor[3].wire = true;
+			App->scene_intro->sensor[4].wire = true;
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
@@ -305,7 +330,7 @@ update_status ModulePlayer::Update(float dt)
 	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
 
-	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN)
 	{
 		App->camera->finish = !App->camera->finish;
 	}

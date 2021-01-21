@@ -54,7 +54,7 @@ public:
 	Cube ramp[4];
 	Cube limits[100];
 
-	uint timer = 30;
+	uint timer = 400;
 	uint frames = 0;
 	uint lap = 0;
 
