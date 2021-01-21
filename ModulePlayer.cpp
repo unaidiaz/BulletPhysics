@@ -384,7 +384,7 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	}
 	else if (body2->id == 7)
 	{
-		turboTimer = 1;
+		turboTimer = 2;
 	}
 
 }

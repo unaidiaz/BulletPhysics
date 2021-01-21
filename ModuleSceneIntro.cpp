@@ -97,7 +97,7 @@ bool ModuleSceneIntro::Start()
 	ramp[0].SetRotation(20.0f, { 0,0,1 });
 	ramp[0].size.x = 25;
 	ramp[0].size.y = 2;
-	ramp[0].size.z = 25;
+	ramp[0].size.z = 40;
 	ramp[0].axis = true;
 	ramp[0].color = White;
 	App->physics->AddBody(ramp[0], 0);
@@ -106,7 +106,7 @@ bool ModuleSceneIntro::Start()
 	ramp[1].SetRotation(40.0f, { 0,0,1 });
 	ramp[1].size.x = 25;
 	ramp[1].size.y = 2;
-	ramp[1].size.z = 25;
+	ramp[1].size.z = 40;
 	ramp[1].axis = true;
 	ramp[1].color = Black;
 	App->physics->AddBody(ramp[1], 0);
@@ -115,7 +115,7 @@ bool ModuleSceneIntro::Start()
 	ramp[2].SetRotation(60.0f, { 0,0,1 });
 	ramp[2].size.x = 25;
 	ramp[2].size.y = 2;
-	ramp[2].size.z = 25;
+	ramp[2].size.z = 40;
 	ramp[2].axis = true;
 	ramp[2].color = White;
 	App->physics->AddBody(ramp[2], 0);
@@ -124,7 +124,7 @@ bool ModuleSceneIntro::Start()
 	ramp[3].SetRotation(80.0f, { 0,0,1 });
 	ramp[3].size.x = 25;
 	ramp[3].size.y = 2;
-	ramp[3].size.z = 25;
+	ramp[3].size.z = 40;
 	ramp[3].axis = true;
 	ramp[3].color = Black;
 	App->physics->AddBody(ramp[3], 0);
@@ -133,7 +133,7 @@ bool ModuleSceneIntro::Start()
 	ramp[4].SetRotation(100.0f, { 0,0,1 });
 	ramp[4].size.x = 25;
 	ramp[4].size.y = 2;
-	ramp[4].size.z = 25;
+	ramp[4].size.z = 40;
 	ramp[4].axis = true;
 	ramp[4].color = White;
 	App->physics->AddBody(ramp[4], 0);
@@ -142,7 +142,7 @@ bool ModuleSceneIntro::Start()
 	ramp[5].SetRotation(120.0f, { 0,0,1 });
 	ramp[5].size.x = 25;
 	ramp[5].size.y = 2;
-	ramp[5].size.z = 25;
+	ramp[5].size.z = 40;
 	ramp[5].axis = true;
 	ramp[5].color = Black;
 	App->physics->AddBody(ramp[5], 0);
@@ -151,7 +151,7 @@ bool ModuleSceneIntro::Start()
 	ramp[6].SetRotation(140.0f, { 0,0,1 });
 	ramp[6].size.x = 25;
 	ramp[6].size.y = 2;
-	ramp[6].size.z = 25;
+	ramp[6].size.z = 40;
 	ramp[6].axis = true;
 	ramp[6].color = White;
 	App->physics->AddBody(ramp[6], 0);
@@ -160,7 +160,7 @@ bool ModuleSceneIntro::Start()
 	ramp[7].SetRotation(160.0f, { 0,0,1 });
 	ramp[7].size.x = 25;
 	ramp[7].size.y = 2;
-	ramp[7].size.z = 25;
+	ramp[7].size.z = 40;
 	ramp[7].axis = true;
 	ramp[7].color = Black;
 	App->physics->AddBody(ramp[7], 0);
@@ -169,7 +169,7 @@ bool ModuleSceneIntro::Start()
 	ramp[8].SetRotation(180.0f, { 0,0,1 });
 	ramp[8].size.x = 25;
 	ramp[8].size.y = 2;
-	ramp[8].size.z = 25;
+	ramp[8].size.z = 40;
 	ramp[8].axis = true;
 	ramp[8].color = White;
 	App->physics->AddBody(ramp[8], 0);
@@ -178,7 +178,7 @@ bool ModuleSceneIntro::Start()
 	ramp[9].SetRotation(-20.0f, { 0,0,1 });
 	ramp[9].size.x = 25;
 	ramp[9].size.y = 2;
-	ramp[9].size.z = 25;
+	ramp[9].size.z = 40;
 	ramp[9].axis = true;
 	ramp[9].color = White;
 	App->physics->AddBody(ramp[9], 0);
@@ -187,7 +187,7 @@ bool ModuleSceneIntro::Start()
 	ramp[10].SetRotation(-40.0f, { 0,0,1 });
 	ramp[10].size.x = 25;
 	ramp[10].size.y = 2;
-	ramp[10].size.z = 25;
+	ramp[10].size.z = 40;
 	ramp[10].axis = true;
 	ramp[10].color = Black;
 	App->physics->AddBody(ramp[10], 0);
@@ -196,7 +196,7 @@ bool ModuleSceneIntro::Start()
 	ramp[11].SetRotation(-60.0f, { 0,0,1 });
 	ramp[11].size.x = 25;
 	ramp[11].size.y = 2;
-	ramp[11].size.z = 25;
+	ramp[11].size.z = 40;
 	ramp[11].axis = true;
 	ramp[11].color = White;
 	App->physics->AddBody(ramp[11], 0);
@@ -205,7 +205,7 @@ bool ModuleSceneIntro::Start()
 	ramp[12].SetRotation(-80.0f, { 0,0,1 });
 	ramp[12].size.x = 25;
 	ramp[12].size.y = 2;
-	ramp[12].size.z = 25;
+	ramp[12].size.z = 40;
 	ramp[12].axis = true;
 	ramp[12].color = Black;
 	App->physics->AddBody(ramp[12], 0);
@@ -214,7 +214,7 @@ bool ModuleSceneIntro::Start()
 	ramp[13].SetRotation(-100.0f, { 0,0,1 });
 	ramp[13].size.x = 25;
 	ramp[13].size.y = 2;
-	ramp[13].size.z = 25;
+	ramp[13].size.z = 40;
 	ramp[13].axis = true;
 	ramp[13].color = White;
 	App->physics->AddBody(ramp[13], 0);
@@ -223,7 +223,7 @@ bool ModuleSceneIntro::Start()
 	ramp[14].SetRotation(-120.0f, { 0,0,1 });
 	ramp[14].size.x = 25;
 	ramp[14].size.y = 2;
-	ramp[14].size.z = 25;
+	ramp[14].size.z = 40;
 	ramp[14].axis = true;
 	ramp[14].color = Black;
 	App->physics->AddBody(ramp[14], 0);
@@ -232,7 +232,7 @@ bool ModuleSceneIntro::Start()
 	ramp[15].SetRotation(-140.0f, { 0,0,1 });
 	ramp[15].size.x = 25;
 	ramp[15].size.y = 2;
-	ramp[15].size.z = 25;
+	ramp[15].size.z = 40;
 	ramp[15].axis = true;
 	ramp[15].color = White;
 	App->physics->AddBody(ramp[15], 0);
@@ -241,30 +241,20 @@ bool ModuleSceneIntro::Start()
 	ramp[16].SetRotation(-160.0f, { 0,0,1 });
 	ramp[16].size.x = 25;
 	ramp[16].size.y = 2;
-	ramp[16].size.z = 25;
+	ramp[16].size.z = 40;
 	ramp[16].axis = true;
 	ramp[16].color = Black;
 	App->physics->AddBody(ramp[16], 0);
 
+	ramp[16].SetPos(300, 0, 500);
+	ramp[16].SetRotation(-5.0f, { 0,0,1 });
+	ramp[16].size.x = 25;
+	ramp[16].size.y = 2;
+	ramp[16].size.z = 40;
+	ramp[16].axis = true;
+	ramp[16].color = Red;
+	App->physics->AddBody(ramp[16], 0);
 
-
-	ramp[18].SetPos(334, 0, 470);
-	ramp[18].SetRotation(-5.0f, { 1,0,0 });
-	ramp[18].size.x = 30;
-	ramp[18].size.y = 2;
-	ramp[18].size.z = 40;
-	ramp[18].axis = true;
-	ramp[18].color.Set(255, 0, 0);
-	App->physics->AddBody(ramp[18], 0);
-
-	ramp[19].SetPos(334, 0, 470);
-	ramp[19].SetRotation(-5.0f, { 0,0,1 });
-	ramp[19].size.x = 30;
-	ramp[19].size.y = 2;
-	ramp[19].size.z = 40;
-	ramp[19].axis = true;
-	ramp[19].color.Set(255, 0, 0);
-	App->physics->AddBody(ramp[19], 0);
 
 	//Limits-------------------
 	limits[0].SetPos(256, 0, 56);
@@ -578,7 +568,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(6);
 
-	sensor[5].SetPos(39, 2, 350);
+	sensor[5].SetPos(39, 0, 350);
 	sensor[5].size.x = 10;
 	sensor[5].size.y = 1;
 	sensor[5].size.z = 15;
@@ -589,7 +579,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	sensor[6].SetPos(380, 2, 220);
+	sensor[6].SetPos(380, 0, 220);
 	sensor[6].size.x = 15;
 	sensor[6].size.y = 1;
 	sensor[6].size.z = 10;
@@ -600,7 +590,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	sensor[7].SetPos(230, 2, 435);
+	sensor[7].SetPos(230, 0, 435);
 	sensor[7].size.x = 15;
 	sensor[7].size.y = 1;
 	sensor[7].size.z = 10;
