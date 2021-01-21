@@ -20,7 +20,11 @@ bool ModulePlayer::Start()
 
 	metaFx = App->audio->LoadFx("Assets/meta.wav");
 	checkpointFx = App->audio->LoadFx("Assets/checkpoint.wav");
+	startFx = App->audio->LoadFx("Assets/start.wav");
+	canMove = false;
+	playMusic = true;
 
+	App->audio->PlayFx(startFx);
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
@@ -184,27 +188,34 @@ update_status ModulePlayer::Update(float dt)
 
 	turn = acceleration = brake = 0.0f;
 
+	if (INITIAL_TIME - App->scene_intro->timer == 5)
+	{
+		canMove = true;
+		if (playMusic) App->audio->PlayMusic("Assets/music.ogg");
+		playMusic = false;
+	}
+
 	if (App->camera->finish == false)
 	{
 
-		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && canMove == true)
 		{
 			acceleration = MAX_ACCELERATION * 5;
 		}
 
-		if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+		if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && canMove == true)
 		{
 			if (turn < TURN_DEGREES)
 				turn += TURN_DEGREES;
 		}
 
-		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && canMove == true)
 		{
 			if (turn > -TURN_DEGREES)
 				turn -= TURN_DEGREES;
 		}
 
-		if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+		if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && canMove == true)
 		{
 			if (vehicle->GetKmh() > 0)
 			{

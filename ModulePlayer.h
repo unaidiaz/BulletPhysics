@@ -9,7 +9,7 @@ struct PhysVehicle3D;
 #define TURN_DEGREES 15.0f * DEGTORAD
 #define BRAKE_POWER 350.0f
 #define JUMP_COOLDOWN 3.0f
-#define JUMP_IMPULSE 200.0f
+#define JUMP_IMPULSE 700.0f
 
 class ModulePlayer : public Module
 {
@@ -29,7 +29,10 @@ public:
 	float acceleration;
 	float brake;
 	uint turboTimer;
+	bool canMove;
+	bool playMusic;
 
 	int checkpointFx;
 	int metaFx;
+	int startFx;
 };

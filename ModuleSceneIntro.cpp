@@ -20,7 +20,6 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro assets");
 	bool ret = true;
 
-	App->audio->PlayMusic("Assets/music.ogg");
 	//App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	//App->camera->LookAt(vec3(0, 0, 0));
 
@@ -601,6 +600,30 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
+	flag[1].SetPos(30, 17, 214);
+	flag[1].size.x = 2;
+	flag[1].size.y = 2;
+	flag[1].size.z = 2;
+	flag[1].axis = true;
+	flag[1].color = Black;
+	App->physics->AddBody(flag[1], 0);
+
+	flag[2].SetPos(40, 17, 214);
+	flag[2].size.x = 2;
+	flag[2].size.y = 2;
+	flag[2].size.z = 2;
+	flag[2].axis = true;
+	flag[2].color = Black;
+	App->physics->AddBody(flag[2], 0);
+
+	flag[3].SetPos(50, 17, 214);
+	flag[3].size.x = 2;
+	flag[3].size.y = 2;
+	flag[3].size.z = 2;
+	flag[3].axis = true;
+	flag[3].color = Black;
+	App->physics->AddBody(flag[3], 0);
+
 	return ret;
 }
 
@@ -622,6 +645,32 @@ update_status ModuleSceneIntro::Update(float dt)
 	wall3.Render();
 	wall4.Render();
 
+	flag[1].Render();
+	flag[2].Render();
+	flag[3].Render();
+
+	secondsSinceInit = INITIAL_TIME - timer;
+
+	if (secondsSinceInit == 2)
+	{
+		flag[1].color = Red;
+	}
+	else if (secondsSinceInit == 3)
+	{
+		flag[2].color = Red;
+	}
+	else if (secondsSinceInit == 4)
+	{
+		flag[3].color = Red;
+	}
+	else if (secondsSinceInit == 5)
+	{
+		for (int i = 1; i <= 3; i++)
+		{
+			flag[i].color = Green;
+		}
+	}
+	
 	for (int i = 0; i < 20; i++)
 	{
 		ramp[i].Render();
