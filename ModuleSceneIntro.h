@@ -51,7 +51,7 @@ public:
 	Cube wall3;
 	Cube wall4;
 	Cube sensor[10];
-	Cube ramp[4];
+	Cube ramp[20];
 	Cube limits[100];
 
 	uint timer = 400;
