@@ -28,6 +28,7 @@ public:
 
 	bool freeCamera;
 	bool finish;
+	bool firstPerson;
 
 private:
 
