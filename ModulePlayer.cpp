@@ -255,6 +255,51 @@ update_status ModulePlayer::Update(float dt)
 			App->camera->finish = true;
 			App->audio->PlayMusic("Assets/win.ogg", 0.0f);
 		}
+
+		if (App->scene_intro->lap == 1)
+		{
+			App->scene_intro->limits[0].color = Yellow;
+			App->scene_intro->limits[1].color = Yellow;
+			App->scene_intro->limits[2].color = Yellow;
+			App->scene_intro->limits[3].color = Yellow;
+			App->scene_intro->limits[4].color = Yellow;
+			App->scene_intro->limits[5].color = Yellow;
+			App->scene_intro->limits[6].color = Yellow;
+			App->scene_intro->limits[7].color = Yellow;
+			App->scene_intro->limits[8].color = Yellow;
+			App->scene_intro->limits[9].color = Yellow;
+			App->scene_intro->limits[10].color = Yellow;
+			App->scene_intro->limits[11].color = Yellow;
+			App->scene_intro->limits[12].color = Yellow;
+			App->scene_intro->limits[13].color = Yellow;
+			App->scene_intro->limits[14].color = Yellow;
+			App->scene_intro->limits[15].color = Yellow;
+			App->scene_intro->limits[16].color = Yellow;
+			App->scene_intro->limits[17].color = Yellow;
+		}
+
+		if (App->scene_intro->lap == 2)
+		{
+			App->scene_intro->limits[0].color = X;
+			App->scene_intro->limits[1].color = X;
+			App->scene_intro->limits[2].color = X;
+			App->scene_intro->limits[3].color = X;
+			App->scene_intro->limits[4].color = X;
+			App->scene_intro->limits[5].color = X;
+			App->scene_intro->limits[6].color = X;
+			App->scene_intro->limits[7].color = X;
+			App->scene_intro->limits[8].color = X;
+			App->scene_intro->limits[9].color = X;
+			App->scene_intro->limits[10].color = X;
+			App->scene_intro->limits[11].color = X;
+			App->scene_intro->limits[12].color = X;
+			App->scene_intro->limits[13].color = X;
+			App->scene_intro->limits[14].color = X;
+			App->scene_intro->limits[15].color = X;
+			App->scene_intro->limits[16].color = X;
+			App->scene_intro->limits[17].color = X;
+		}
+
 		if (App->scene_intro->timer <= 0)
 		{
 			App->camera->finish = true;

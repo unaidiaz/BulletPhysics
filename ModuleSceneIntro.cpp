@@ -509,6 +509,72 @@ bool ModuleSceneIntro::Start()
 	limits[35].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[35], 0);
 
+	limits[35].SetPos(11, 0, 213);
+	limits[35].size.x = 1;
+	limits[35].size.y = 15;
+	limits[35].size.z = 1;
+	limits[35].axis = true;
+	limits[35].color = White;
+	App->physics->AddBody(limits[35], 0);
+
+	limits[36].SetPos(67, 0, 213);
+	limits[36].size.x = 1;
+	limits[36].size.y = 15;
+	limits[36].size.z = 1;
+	limits[36].axis = true;
+	limits[36].color = White;
+	App->physics->AddBody(limits[36], 0);
+
+	limits[37].SetPos(11, 8, 213);
+	limits[37].size.x = 4;
+	limits[37].size.y = 4;
+	limits[37].size.z = 4;
+	limits[37].axis = true;
+	limits[37].color = Red;
+	App->physics->AddBody(limits[37], 0);
+
+	limits[38].SetPos(67, 8, 213);
+	limits[38].size.x = 4;
+	limits[38].size.y = 4;
+	limits[38].size.z = 4;
+	limits[38].axis = true;
+	limits[38].color = Red;
+	App->physics->AddBody(limits[38], 0);
+
+	limits[39].SetPos(255, 0, 122);
+	limits[39].size.x = 1;
+	limits[39].size.y = 15;
+	limits[39].size.z = 1;
+	limits[39].axis = true;
+	limits[39].color = White;
+	App->physics->AddBody(limits[39], 0);
+
+	limits[40].SetPos(255, 0, 178);
+	limits[40].size.x = 1;
+	limits[40].size.y = 15;
+	limits[40].size.z = 1;
+	limits[40].axis = true;
+	limits[40].color = White;
+	App->physics->AddBody(limits[40], 0);
+
+	limits[41].SetPos(255, 8, 122);
+	limits[41].size.x = 4;
+	limits[41].size.y = 4;
+	limits[41].size.z = 4;
+	limits[41].axis = true;
+	limits[41].color = Red;
+	App->physics->AddBody(limits[41], 0);
+
+	limits[42].SetPos(255, 8, 178);
+	limits[42].size.x = 4;
+	limits[42].size.y = 4;
+	limits[42].size.z = 4;
+	limits[42].axis = true;
+	limits[42].color = Red;
+	App->physics->AddBody(limits[42], 0);
+
+	//Sensor------------------------------
+
 	sensor[0].SetPos(39, 0, 213);
 	sensor[0].size.x = 40;
 	sensor[0].size.y = 15;
