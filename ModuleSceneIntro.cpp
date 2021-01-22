@@ -600,7 +600,15 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	flag[1].SetPos(30, 17, 214);
+	flag[0].SetPos(30, 17, 214);
+	flag[0].size.x = 2;
+	flag[0].size.y = 2;
+	flag[0].size.z = 2;
+	flag[0].axis = true;
+	flag[0].color = Black;
+	App->physics->AddBody(flag[0], 0);
+
+	flag[1].SetPos(40, 17, 214);
 	flag[1].size.x = 2;
 	flag[1].size.y = 2;
 	flag[1].size.z = 2;
@@ -608,21 +616,13 @@ bool ModuleSceneIntro::Start()
 	flag[1].color = Black;
 	App->physics->AddBody(flag[1], 0);
 
-	flag[2].SetPos(40, 17, 214);
+	flag[2].SetPos(50, 17, 214);
 	flag[2].size.x = 2;
 	flag[2].size.y = 2;
 	flag[2].size.z = 2;
 	flag[2].axis = true;
 	flag[2].color = Black;
 	App->physics->AddBody(flag[2], 0);
-
-	flag[3].SetPos(50, 17, 214);
-	flag[3].size.x = 2;
-	flag[3].size.y = 2;
-	flag[3].size.z = 2;
-	flag[3].axis = true;
-	flag[3].color = Black;
-	App->physics->AddBody(flag[3], 0);
 
 	return ret;
 }
@@ -645,27 +645,27 @@ update_status ModuleSceneIntro::Update(float dt)
 	wall3.Render();
 	wall4.Render();
 
+	flag[0].Render();
 	flag[1].Render();
 	flag[2].Render();
-	flag[3].Render();
 
 	secondsSinceInit = INITIAL_TIME - timer;
 
 	if (secondsSinceInit == 2)
 	{
-		flag[1].color = Red;
+		flag[0].color = Red;
 	}
 	else if (secondsSinceInit == 3)
 	{
-		flag[2].color = Red;
+		flag[1].color = Red;
 	}
 	else if (secondsSinceInit == 4)
 	{
-		flag[3].color = Red;
+		flag[2].color = Red;
 	}
 	else if (secondsSinceInit == 5)
 	{
-		for (int i = 1; i <= 3; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			flag[i].color = Green;
 		}

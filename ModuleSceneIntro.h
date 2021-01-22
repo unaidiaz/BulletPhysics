@@ -54,7 +54,7 @@ public:
 	Cube sensor[10];
 	Cube ramp[20];
 	Cube limits[100];
-	Cube flag[4];
+	Cube flag[3];
 
 	uint timer = INITIAL_TIME;
 	uint frames = 0;

@@ -86,7 +86,7 @@ bool ModulePlayer::Start()
 	car.wheels[0].width = wheel_width;
 	car.wheels[0].front = true;
 	car.wheels[0].drive = true;
-	car.wheels[0].brake = false;
+	car.wheels[0].brake = true;
 	car.wheels[0].steering = true;
 
 	// FRONT-RIGHT ------------------------
@@ -98,7 +98,7 @@ bool ModulePlayer::Start()
 	car.wheels[1].width = wheel_width;
 	car.wheels[1].front = true;
 	car.wheels[1].drive = true;
-	car.wheels[1].brake = false;
+	car.wheels[1].brake = true;
 	car.wheels[1].steering = true;
 
 	// REAR-LEFT ------------------------
@@ -110,7 +110,7 @@ bool ModulePlayer::Start()
 	car.wheels[2].width = wheel_width;
 	car.wheels[2].front = false;
 	car.wheels[2].drive = false;
-	car.wheels[2].brake = true;
+	car.wheels[2].brake = false;
 	car.wheels[2].steering = false;
 
 	// REAR-RIGHT ------------------------
@@ -122,7 +122,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].width = wheel_width;
 	car.wheels[3].front = false;
 	car.wheels[3].drive = false;
-	car.wheels[3].brake = true;
+	car.wheels[3].brake = false;
 	car.wheels[3].steering = false;
 	vehicle = App->physics->AddVehicle(car);
 	vehicle->SetPos(40, 0, 230);
@@ -179,19 +179,19 @@ update_status ModulePlayer::Update(float dt)
 	car.chassis13_offset.Set(-1.6, 4.5, 0);
 
 	car.mass = 5500.0f;
-	car.suspensionStiffness = 4.0f;
-	car.suspensionCompression = 6.0f;
-	car.suspensionDamping = 0.01f;
-	car.maxSuspensionTravelCm = 700.0f;
-	car.frictionSlip = 8000;
-	car.maxSuspensionForce = 10000.0f;
+	car.suspensionStiffness = 26.10f;
+	car.suspensionCompression = 1.42f;
+	car.suspensionDamping = 2.35f;
+	car.maxSuspensionTravelCm = 510.0f;
+	car.frictionSlip = 100.5;
+	car.maxSuspensionForce = 1000.0f;
 
 	turn = acceleration = brake = 0.0f;
 
 	if (INITIAL_TIME - App->scene_intro->timer == 5)
 	{
 		canMove = true;
-		if (playMusic) App->audio->PlayMusic("Assets/music.ogg");
+		if (playMusic) App->audio->PlayMusic("Assets/music.ogg", 0.0f);
 		playMusic = false;
 	}
 
@@ -233,6 +233,7 @@ update_status ModulePlayer::Update(float dt)
 		}
 		if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) 
 		{
+			App->audio->PlayMusic("Assets/silence.ogg");
 			turn = 0;
 			acceleration = 0;
 			vehicle->SetPos(40, 0, 230);
@@ -247,6 +248,13 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->sensor[2].wire = true;
 			App->scene_intro->sensor[3].wire = true;
 			App->scene_intro->sensor[4].wire = true;
+			vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+			canMove = false;
+			App->scene_intro->flag[0].color = Black;
+			App->scene_intro->flag[1].color = Black;
+			App->scene_intro->flag[2].color = Black;
+			App->audio->PlayFx(startFx);
+			playMusic = true;
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
@@ -284,14 +292,14 @@ update_status ModulePlayer::Update(float dt)
 
 			if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 			{
-				angles.pitch -= (DEGTORAD * 2);
+				angles.yaw -= (DEGTORAD * 2);
 				btQuaternion q;
 				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
 				vehicle->SetRotation(q);
 			}
 			else if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 			{
-				angles.pitch += (DEGTORAD * 2);
+				angles.yaw += (DEGTORAD * 2);
 				btQuaternion q;
 				q.setEulerZYX(btScalar(angles.yaw), btScalar(angles.pitch), btScalar(angles.roll));
 				vehicle->SetRotation(q);
