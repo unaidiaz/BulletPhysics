@@ -233,31 +233,6 @@ update_status ModulePlayer::Update(float dt)
 		{
 			brake = BRAKE_POWER;
 		}
-		if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) 
-		{
-			App->audio->PlayMusic("Assets/silence.ogg");
-			turn = 0;
-			acceleration = 0;
-			vehicle->SetPos(40, 0, 230);
-			btQuaternion q;
-			q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
-			vehicle->SetRotation(q);
-			App->scene_intro->lap = 0;
-			App->scene_intro->passedCheckpoints = 0;
-			App->scene_intro->timer = INITIAL_TIME;
-			App->scene_intro->sensor[0].wire = true;
-			App->scene_intro->sensor[1].wire = false;
-			App->scene_intro->sensor[2].wire = true;
-			App->scene_intro->sensor[3].wire = true;
-			App->scene_intro->sensor[4].wire = true;
-			vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
-			canMove = false;
-			App->scene_intro->flag[0].color = Black;
-			App->scene_intro->flag[1].color = Black;
-			App->scene_intro->flag[2].color = Black;
-			App->audio->PlayFx(startFx);
-			playMusic = true;
-		}
 
 		if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		{
@@ -322,6 +297,33 @@ update_status ModulePlayer::Update(float dt)
 				vehicle->SetRotation(q);
 			}
 		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
+	{
+		App->audio->PlayMusic("Assets/silence.ogg");
+		turn = 0;
+		acceleration = 0;
+		vehicle->SetPos(40, 0, 230);
+		btQuaternion q;
+		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetRotation(q);
+		App->scene_intro->lap = 0;
+		App->scene_intro->passedCheckpoints = 0;
+		App->scene_intro->timer = INITIAL_TIME;
+		App->scene_intro->sensor[0].wire = true;
+		App->scene_intro->sensor[1].wire = false;
+		App->scene_intro->sensor[2].wire = true;
+		App->scene_intro->sensor[3].wire = true;
+		App->scene_intro->sensor[4].wire = true;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		canMove = false;
+		App->scene_intro->flag[0].color = Black;
+		App->scene_intro->flag[1].color = Black;
+		App->scene_intro->flag[2].color = Black;
+		App->camera->finish = false;
+		playMusic = true;
+		App->audio->PlayFx(startFx);
 	}
 
 	if ((App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE) || App->camera->finish == true)
