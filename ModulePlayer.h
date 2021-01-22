@@ -35,4 +35,6 @@ public:
 	int checkpointFx;
 	int metaFx;
 	int startFx;
+	int turboFx;
+	bool turboSoundActive;
 };

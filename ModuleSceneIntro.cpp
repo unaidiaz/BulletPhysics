@@ -20,9 +20,6 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro assets");
 	bool ret = true;
 
-	//App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
-	//App->camera->LookAt(vec3(0, 0, 0));
-
 	passedCheckpoints = 0;
 	
 	//Walls----------------------
@@ -567,7 +564,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(6);
 
-	sensor[5].SetPos(39, 0, 350);
+	sensor[5].SetPos(39, 2, 350);
 	sensor[5].size.x = 10;
 	sensor[5].size.y = 1;
 	sensor[5].size.z = 15;
@@ -578,7 +575,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	sensor[6].SetPos(380, 0, 220);
+	sensor[6].SetPos(380, 2, 220);
 	sensor[6].size.x = 15;
 	sensor[6].size.y = 1;
 	sensor[6].size.z = 10;
@@ -589,7 +586,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	sensor[7].SetPos(230, 0, 435);
+	sensor[7].SetPos(230, 2, 435);
 	sensor[7].size.x = 15;
 	sensor[7].size.y = 1;
 	sensor[7].size.z = 10;
@@ -692,6 +689,7 @@ update_status ModuleSceneIntro::Update(float dt)
 		{
 			App->player->turboTimer--;
 		}
+		App->player->turboSoundActive = true;
 		timer--;
 	}
 

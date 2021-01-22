@@ -21,8 +21,10 @@ bool ModulePlayer::Start()
 	metaFx = App->audio->LoadFx("Assets/meta.wav");
 	checkpointFx = App->audio->LoadFx("Assets/checkpoint.wav");
 	startFx = App->audio->LoadFx("Assets/start.wav");
+	turboFx = App->audio->LoadFx("Assets/turbo.wav");
 	canMove = false;
 	playMusic = true;
+	turboSoundActive = true;
 
 	App->audio->PlayFx(startFx);
 	VehicleInfo car;
@@ -242,7 +244,7 @@ update_status ModulePlayer::Update(float dt)
 			vehicle->SetRotation(q);
 			App->scene_intro->lap = 0;
 			App->scene_intro->passedCheckpoints = 0;
-			App->scene_intro->timer = 400;
+			App->scene_intro->timer = INITIAL_TIME;
 			App->scene_intro->sensor[0].wire = true;
 			App->scene_intro->sensor[1].wire = false;
 			App->scene_intro->sensor[2].wire = true;
@@ -276,12 +278,12 @@ update_status ModulePlayer::Update(float dt)
 		if (App->scene_intro->lap == 3)
 		{
 			App->camera->finish = true;
-			//Victory sound
+			App->audio->PlayMusic("Assets/win.ogg", 0.0f);
 		}
 		if (App->scene_intro->timer <= 0)
 		{
 			App->camera->finish = true;
-			//Lose sound
+			App->audio->PlayMusic("Assets/lose.ogg", 0.0f);
 		}
 
 		btVector3 airControl;
@@ -403,7 +405,11 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	}
 	else if (body2->id == 7)
 	{
+		if (turboSoundActive)
+		{
+			App->audio->PlayFx(turboFx);
+			turboSoundActive = false;
+		}
 		turboTimer = 2;
 	}
-
 }
