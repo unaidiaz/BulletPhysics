@@ -32,7 +32,7 @@ bool ModulePlayer::Start()
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(3, 0.5, 12);
 	car.chassis2_size.Set(5.5, 1.7, 7);
-	car.chassis3_size.Set(7, 0.7, 1.7);
+	car.chassis3_size.Set(7, 0.2, 1.7);
 	car.chassis4_size.Set(3, 0.5, 14);
 	car.chassis5_size.Set(2.3, 2, 5);
 	car.chassis6_size.Set(0.2, 1, 1);
@@ -150,44 +150,6 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update(float dt)
 {
-	VehicleInfo car;
-
-	car.chassis_size.Set(4, 5, 8);
-	car.chassis2_size.Set(4, 2, 0.5);
-	car.chassis3_size.Set(3, 0.8, 0.2);
-	car.chassis4_size.Set(0.5, 2, 4);
-	car.chassis5_size.Set(0.5, 2, 4);
-	car.chassis6_size.Set(4, 4, 2);
-	car.chassis7_size.Set(4, 2.5, 2);
-	car.chassis8_size.Set(3.5, 3.5, 1.5);
-	car.chassis9_size.Set(4.05, 4, 1.5);
-	car.chassis10_size.Set(0.7, 0.7, 0.7);
-	car.chassis11_size.Set(0.7, 0.7, 0.7);
-	car.chassis12_size.Set(0.7, 5, 0.7);
-	car.chassis13_size.Set(0.7, 5, 0.7);
-
-	car.chassis_offset.Set(0, 1.8, 0);
-	car.chassis2_offset.Set(0, 2.5, -4);
-	car.chassis3_offset.Set(0, 2, -4.2);
-	car.chassis4_offset.Set(1.75, 2.5, -2);
-	car.chassis5_offset.Set(-1.75, 2.5, -2);
-	car.chassis6_offset.Set(0, 4, 1);
-	car.chassis7_offset.Set(0, 3, 3);
-	car.chassis8_offset.Set(0, 3.6, 1.3);
-	car.chassis9_offset.Set(0, 5, 1);
-	car.chassis10_offset.Set(1.5, 3, 4);
-	car.chassis11_offset.Set(-1.5, 3, 4);
-	car.chassis12_offset.Set(1.6, 4.5, 0);
-	car.chassis13_offset.Set(-1.6, 4.5, 0);
-
-	car.mass = 5500.0f;
-	car.suspensionStiffness = 26.10f;
-	car.suspensionCompression = 1.42f;
-	car.suspensionDamping = 2.35f;
-	car.maxSuspensionTravelCm = 510.0f;
-	car.frictionSlip = 100.5;
-	car.maxSuspensionForce = 1000.0f;
-
 	turn = acceleration = brake = 0.0f;
 
 	if (INITIAL_TIME - App->scene_intro->timer == 5)
@@ -247,7 +209,7 @@ update_status ModulePlayer::Update(float dt)
 
 		if (turboTimer > 0)
 		{
-			acceleration = MAX_ACCELERATION * 5;
+			acceleration = MAX_ACCELERATION * 9;
 		}
 
 		if (App->scene_intro->lap == 3)
@@ -262,9 +224,7 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[1].color = Yellow;
 			App->scene_intro->limits[2].color = Yellow;
 			App->scene_intro->limits[3].color = Yellow;
-			App->scene_intro->limits[4].color = Yellow;
 			App->scene_intro->limits[5].color = Yellow;
-			App->scene_intro->limits[6].color = Yellow;
 			App->scene_intro->limits[7].color = Yellow;
 			App->scene_intro->limits[8].color = Yellow;
 			App->scene_intro->limits[9].color = Yellow;
@@ -280,24 +240,22 @@ update_status ModulePlayer::Update(float dt)
 
 		if (App->scene_intro->lap == 2)
 		{
-			App->scene_intro->limits[0].color = X;
-			App->scene_intro->limits[1].color = X;
-			App->scene_intro->limits[2].color = X;
-			App->scene_intro->limits[3].color = X;
-			App->scene_intro->limits[4].color = X;
-			App->scene_intro->limits[5].color = X;
-			App->scene_intro->limits[6].color = X;
-			App->scene_intro->limits[7].color = X;
-			App->scene_intro->limits[8].color = X;
-			App->scene_intro->limits[9].color = X;
-			App->scene_intro->limits[10].color = X;
-			App->scene_intro->limits[11].color = X;
-			App->scene_intro->limits[12].color = X;
-			App->scene_intro->limits[13].color = X;
-			App->scene_intro->limits[14].color = X;
-			App->scene_intro->limits[15].color = X;
-			App->scene_intro->limits[16].color = X;
-			App->scene_intro->limits[17].color = X;
+			App->scene_intro->limits[0].color = Pink;
+			App->scene_intro->limits[1].color = Pink;
+			App->scene_intro->limits[2].color = Pink;
+			App->scene_intro->limits[3].color = Pink;
+			App->scene_intro->limits[5].color = Pink;
+			App->scene_intro->limits[7].color = Pink;
+			App->scene_intro->limits[8].color = Pink;
+			App->scene_intro->limits[9].color = Pink;
+			App->scene_intro->limits[10].color = Pink;
+			App->scene_intro->limits[11].color = Pink;
+			App->scene_intro->limits[12].color = Pink;
+			App->scene_intro->limits[13].color = Pink;
+			App->scene_intro->limits[14].color = Pink;
+			App->scene_intro->limits[15].color = Pink;
+			App->scene_intro->limits[16].color = Pink;
+			App->scene_intro->limits[17].color = Pink;
 		}
 
 		if (App->scene_intro->timer <= 0)
