@@ -472,7 +472,7 @@ void ModulePlayer::checkpointReapear(int checkpointPassed)
 	case 0:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(40, 0, 230);
+		vehicle->SetPos(39, 0, 213);
 		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
@@ -480,25 +480,24 @@ void ModulePlayer::checkpointReapear(int checkpointPassed)
 	case 1:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(40, 0, 230);
-		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetPos(255, 0, 150);
+		q.setEuler(btScalar(90 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		break;
 	case 2:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(40, 0, 230);
-
-		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetPos(355, 0, 338);
+		q.setEuler(btScalar(90 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		break;
 	case 3:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(40, 0, 230);
-		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetPos(480, 0, 442);
+		q.setEuler(btScalar(270 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		break;
