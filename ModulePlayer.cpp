@@ -33,7 +33,7 @@ bool ModulePlayer::Start()
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(3, 0.5, 12);
 	car.chassis2_size.Set(5.5, 1.7, 7);
-	car.chassis3_size.Set(7, 0.2, 1.7);
+	car.chassis3_size.Set(7, 0.3, 1.2);
 	car.chassis4_size.Set(3, 0.5, 14);
 	car.chassis5_size.Set(2.3, 2, 5);
 	car.chassis6_size.Set(0.2, 1, 1);
@@ -45,7 +45,7 @@ bool ModulePlayer::Start()
 
 	car.chassis_offset.Set(0, 1.8, 0);
 	car.chassis2_offset.Set(0, 2.4, -3);
-	car.chassis3_offset.Set(0, 1.8, 8);
+	car.chassis3_offset.Set(0, 1.8, 7.5);
 	car.chassis4_offset.Set(0, 1.8, 1.5);
 	car.chassis5_offset.Set(0, 3, -3);
 	car.chassis6_offset.Set(1.6, 3.5, -6.2);
@@ -221,44 +221,70 @@ update_status ModulePlayer::Update(float dt)
 			acceleration = MAX_ACCELERATION * 9;
 		}
 
-		if (App->scene_intro->lap == 1)
+		if (App->scene_intro->lap == 0)
 		{
-			App->scene_intro->limits[0].color = Yellow;
-			App->scene_intro->limits[1].color = Yellow;
-			App->scene_intro->limits[2].color = Yellow;
-			App->scene_intro->limits[3].color = Yellow;
-			App->scene_intro->limits[5].color = Yellow;
-			App->scene_intro->limits[7].color = Yellow;
-			App->scene_intro->limits[8].color = Yellow;
-			App->scene_intro->limits[9].color = Yellow;
-			App->scene_intro->limits[10].color = Yellow;
-			App->scene_intro->limits[11].color = Yellow;
-			App->scene_intro->limits[12].color = Yellow;
-			App->scene_intro->limits[13].color = Yellow;
-			App->scene_intro->limits[14].color = Yellow;
-			App->scene_intro->limits[15].color = Yellow;
-			App->scene_intro->limits[16].color = Yellow;
-			App->scene_intro->limits[17].color = Yellow;
+			App->scene_intro->wall1.color.Set(0, 255, 255);
+			App->scene_intro->wall2.color.Set(0, 255, 255);
+			App->scene_intro->wall3.color.Set(0, 255, 255);
+			App->scene_intro->wall4.color.Set(0, 255, 255);
+			App->scene_intro->limits[0].color = Lila;
+			App->scene_intro->limits[1].color = Lila;
+			App->scene_intro->limits[2].color = Lila;
+			App->scene_intro->limits[3].color = Lila;
+			App->scene_intro->limits[4].color = Lila;
+			App->scene_intro->limits[5].color = Lila;
+			App->scene_intro->limits[7].color = Lila;
+			App->scene_intro->limits[8].color = Lila;
+			App->scene_intro->limits[9].color = Lila;
+			App->scene_intro->limits[55].color = Lila;
+			App->scene_intro->limits[14].color = Lila;
+			App->scene_intro->limits[15].color = Lila;
+			App->scene_intro->limits[16].color = Lila;
+			App->scene_intro->limits[17].color = Lila;
 		}
 
-		if (App->scene_intro->lap == 2)
+		if (App->scene_intro->lap == 1)
 		{
+			App->scene_intro->wall1.color.Set(0, 0, 255);
+			App->scene_intro->wall2.color.Set(0, 0, 255);
+			App->scene_intro->wall3.color.Set(0, 0, 255);
+			App->scene_intro->wall4.color.Set(0, 0, 255);
 			App->scene_intro->limits[0].color = Pink;
 			App->scene_intro->limits[1].color = Pink;
 			App->scene_intro->limits[2].color = Pink;
 			App->scene_intro->limits[3].color = Pink;
+			App->scene_intro->limits[4].color = Pink;
 			App->scene_intro->limits[5].color = Pink;
 			App->scene_intro->limits[7].color = Pink;
 			App->scene_intro->limits[8].color = Pink;
 			App->scene_intro->limits[9].color = Pink;
-			App->scene_intro->limits[10].color = Pink;
-			App->scene_intro->limits[11].color = Pink;
-			App->scene_intro->limits[12].color = Pink;
-			App->scene_intro->limits[13].color = Pink;
+			App->scene_intro->limits[55].color = Pink;
 			App->scene_intro->limits[14].color = Pink;
 			App->scene_intro->limits[15].color = Pink;
 			App->scene_intro->limits[16].color = Pink;
 			App->scene_intro->limits[17].color = Pink;
+		}
+
+		if (App->scene_intro->lap == 2)
+		{
+			App->scene_intro->wall1.color = Black;
+			App->scene_intro->wall2.color = Black;
+			App->scene_intro->wall3.color = Black;
+			App->scene_intro->wall4.color = Black;
+			App->scene_intro->limits[0].color = Cyan;
+			App->scene_intro->limits[1].color = Cyan;
+			App->scene_intro->limits[2].color = Cyan;
+			App->scene_intro->limits[3].color = Cyan;
+			App->scene_intro->limits[4].color = Cyan;
+			App->scene_intro->limits[5].color = Cyan;
+			App->scene_intro->limits[7].color = Cyan;
+			App->scene_intro->limits[8].color = Cyan;
+			App->scene_intro->limits[9].color = Cyan;
+			App->scene_intro->limits[55].color = Cyan;
+			App->scene_intro->limits[14].color = Cyan;
+			App->scene_intro->limits[15].color = Cyan;
+			App->scene_intro->limits[16].color = Cyan;
+			App->scene_intro->limits[17].color = Cyan;
 		}
 
 		if (App->scene_intro->lap == 3)

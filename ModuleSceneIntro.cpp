@@ -489,21 +489,13 @@ bool ModuleSceneIntro::Start()
 	limits[9].color = Lila;
 	App->physics->AddBody(limits[9], 0);
 
-	limits[10].SetPos(265, 0, 329);
-	limits[10].size.x = 50;
-	limits[10].size.y = 40;
-	limits[10].size.z = 5;
-	limits[10].axis = true;
-	limits[10].color = Lila;
-	App->physics->AddBody(limits[10], 0);
-
-	limits[11].SetPos(265, 0, 329);
-	limits[11].size.x = 54;
-	limits[11].size.y = 4;
-	limits[11].size.z = 9;
-	limits[11].axis = true;
-	limits[11].color.Set(255, 0, 0);
-	App->physics->AddBody(limits[11], 0);
+	limits[55].SetPos(265, 0, 329);
+	limits[55].size.x = 50;
+	limits[55].size.y = 40;
+	limits[55].size.z = 5;
+	limits[55].axis = true;
+	limits[55].color = Lila;
+	App->physics->AddBody(limits[55], 0);
 
 	limits[14].SetPos(285, 0, 286);
 	limits[14].size.x = 81;
@@ -657,12 +649,20 @@ bool ModuleSceneIntro::Start()
 	limits[33].color.Set(225, 225, 225);
 	App->physics->AddBody(limits[33], 0);
 
-	limits[34].SetPos(39, 20, 213);
-	limits[34].size.x = 42;
-	limits[34].size.y = 6;
-	limits[34].size.z = 2;
-	limits[34].axis = true;
-	limits[34].color.Set(0, 0, 0);
+	limits[57].SetPos(265, 0, 329);
+	limits[57].size.x = 54;
+	limits[57].size.y = 4;
+	limits[57].size.z = 9;
+	limits[57].axis = true;
+	limits[57].color.Set(255, 0, 0);
+	App->physics->AddBody(limits[57], 0);
+
+	limits[56].SetPos(39, 20, 213);
+	limits[56].size.x = 42;
+	limits[56].size.y = 6;
+	limits[56].size.z = 2;
+	limits[56].axis = true;
+	limits[56].color.Set(0, 0, 0);
 	App->physics->AddBody(limits[34], 0);
 
 	//CHECKPOINT1----------------------------------------------
