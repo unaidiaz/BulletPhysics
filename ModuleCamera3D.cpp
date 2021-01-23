@@ -48,8 +48,7 @@ update_status ModuleCamera3D::Update(float dt)
 	// Now we can make this movememnt frame rate independant!
 	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
 	{
-		if (firstPerson == true) firstPerson = false;
-		else firstPerson = true;
+		firstPerson = !firstPerson;
 	}
 
 	if (firstPerson == true && finish == false)

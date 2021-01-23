@@ -241,6 +241,7 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[15].color = Lila;
 			App->scene_intro->limits[16].color = Lila;
 			App->scene_intro->limits[17].color = Lila;
+			App->scene_intro->limits[60].color = Lila;
 		}
 
 		if (App->scene_intro->lap == 2)
@@ -383,8 +384,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 			App->scene_intro->limits[42].color = Red;
 			App->scene_intro->limits[45].color = Red;
 			App->scene_intro->limits[46].color = Red;
-			App->scene_intro->limits[52].color = Red;
 			App->scene_intro->limits[53].color = Red;
+			App->scene_intro->limits[54].color = Red;
 			App->scene_intro->limits[49].color = Red;
 			App->scene_intro->limits[50].color = Red;
 		}
@@ -420,8 +421,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->timer += 7;
 		App->scene_intro->sensor[4].wire = true;
 		App->scene_intro->sensor[0].wire = false;
-		App->scene_intro->limits[52].color = Green;
 		App->scene_intro->limits[53].color = Green;
+		App->scene_intro->limits[54].color = Green;
 
 	}
 	else if (body2->id == 6 && App->scene_intro->sensor[4].wire == false)

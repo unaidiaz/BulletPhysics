@@ -839,6 +839,14 @@ bool ModuleSceneIntro::Start()
 	limits[53].color = Red;
 	App->physics->AddBody(limits[53], 0);
 
+	limits[54].SetPos(400, 8, 455);
+	limits[54].size.x = 4;
+	limits[54].size.y = 4;
+	limits[54].size.z = 4;
+	limits[54].axis = false;
+	limits[54].color = Red;
+	App->physics->AddBody(limits[54], 0);
+
 	//Sensor------------------------------
 
 	sensor[0].SetPos(44, 0, 213);
@@ -907,7 +915,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	sensor[6].SetPos(380, 2, 220);
+	sensor[6].SetPos(380, 2, 225);
 	sensor[6].size.x = 15;
 	sensor[6].size.y = 1;
 	sensor[6].size.z = 40;
@@ -965,7 +973,7 @@ bool ModuleSceneIntro::Start()
 	App->physics->AddBody(flag[2], 0);
 
 	//Grass--------------------------------
-	sensor[9].SetPos(256, 1.5, 56);
+	sensor[9].SetPos(256, 1.3, 56);
 	sensor[9].size.x = 71;
 	sensor[9].size.y = 0.5;
 	sensor[9].size.z = 130;
@@ -976,7 +984,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[10].SetPos(396, 1.5, 135);
+	sensor[10].SetPos(396, 1.3, 135);
 	sensor[10].size.x = 71;
 	sensor[10].size.y = 0.5;
 	sensor[10].size.z = 98;
@@ -987,10 +995,10 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[11].SetPos(109, 1.5, 187);
+	sensor[11].SetPos(109, 1.3, 232);
 	sensor[11].size.x = 71;
 	sensor[11].size.y = 0.5;
-	sensor[11].size.z = 214;
+	sensor[11].size.z = 316;
 	sensor[11].axis = false;
 	sensor[11].wire = false;
 	sensor[11].color = Break;
@@ -998,18 +1006,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[12].SetPos(103, 1.5, 327);
-	sensor[12].size.x = 55;
-	sensor[12].size.y = 0.5;
-	sensor[12].size.z = 110;
-	sensor[12].axis = false;
-	sensor[12].wire = false;
-	sensor[12].color = Break;
-	physSensor = App->physics->AddBody(sensor[12], 0);
-	physSensor->SetAsSensor(true);
-	physSensor->SetId(8);
-
-	sensor[13].SetPos(255, 1.5, 376);
+	sensor[13].SetPos(255, 1.3, 376);
 	sensor[13].size.x = 359;
 	sensor[13].size.y = 0.5;
 	sensor[13].size.z = 28;
@@ -1020,7 +1017,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[14].SetPos(255, 1.5, 440);
+	sensor[14].SetPos(255, 1.3, 440);
 	sensor[14].size.x = 354;
 	sensor[14].size.y = 0.5;
 	sensor[14].size.z = 28;
@@ -1031,7 +1028,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[15].SetPos(462, 1.5, 260);
+	sensor[15].SetPos(462, 1.3, 260);
 	sensor[15].size.x = 124;
 	sensor[15].size.y = 0.5;
 	sensor[15].size.z = 42;
@@ -1042,7 +1039,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[16].SetPos(369, 1.5, 267);
+	sensor[16].SetPos(369, 1.3, 267);
 	sensor[16].size.x = 111;
 	sensor[16].size.y = 0.5;
 	sensor[16].size.z = 28;
@@ -1053,7 +1050,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[17].SetPos(328, 1.5, 280);
+	sensor[17].SetPos(328, 1.3, 280);
 	sensor[17].size.x = 29;
 	sensor[17].size.y = 0.5;
 	sensor[17].size.z = 36;
@@ -1064,7 +1061,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[18].SetPos(285, 1.5, 286);
+	sensor[18].SetPos(285, 1.3, 286);
 	sensor[18].size.x = 105;
 	sensor[18].size.y = 0.5;
 	sensor[18].size.z = 24;
@@ -1075,7 +1072,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[19].SetPos(182, 1.5, 202);
+	sensor[19].SetPos(182, 1.3, 202);
 	sensor[19].size.x = 129;
 	sensor[19].size.y = 0.5;
 	sensor[19].size.z = 40;
@@ -1086,7 +1083,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[20].SetPos(289, 1.5, 196);
+	sensor[20].SetPos(289, 1.3, 196);
 	sensor[20].size.x = 133;
 	sensor[20].size.y = 0.5;
 	sensor[20].size.z = 28;
@@ -1097,7 +1094,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[21].SetPos(353, 1.5, 180);
+	sensor[21].SetPos(353, 1.3, 180);
 	sensor[21].size.x = 63;
 	sensor[21].size.y = 0.5;
 	sensor[21].size.z = 43;
@@ -1108,7 +1105,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[22].SetPos(0, 1.5, 256);
+	sensor[22].SetPos(0, 1.3, 256);
 	sensor[22].size.x = 29;
 	sensor[22].size.y = 0.5;
 	sensor[22].size.z = 512;
@@ -1119,7 +1116,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[23].SetPos(512, 1.5, 256);
+	sensor[23].SetPos(512, 1.3, 256);
 	sensor[23].size.x = 55;
 	sensor[23].size.y = 0.5;
 	sensor[23].size.z = 512;
@@ -1130,7 +1127,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[24].SetPos(256, 1.5, 0);
+	sensor[24].SetPos(256, 1.3, 0);
 	sensor[24].size.x = 512;
 	sensor[24].size.y = 0.5;
 	sensor[24].size.z = 50;
@@ -1141,7 +1138,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[25].SetPos(256, 1.5, 512);
+	sensor[25].SetPos(256, 1.3, 512);
 	sensor[25].size.x = 512;
 	sensor[25].size.y = 0.5;
 	sensor[25].size.z = 24;
@@ -1152,7 +1149,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
 
-	sensor[26].SetPos(445, 1.5, 286);
+	sensor[26].SetPos(445, 1.3, 286);
 	sensor[26].size.x = 230;
 	sensor[26].size.y = 0.5;
 	sensor[26].size.z = 24;
@@ -1211,17 +1208,17 @@ update_status ModuleSceneIntro::Update(float dt)
 		}
 	}
 	
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < 35; i++)
 	{
 		ramp[i].Render();
 	}
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 62; i++)
 	{
 		limits[i].Render();
 	}
 
-	for (int i = 0; i < 30; i++)
+	for (int i = 0; i < 27; i++)
 	{
 		sensor[i].Render();
 	}
