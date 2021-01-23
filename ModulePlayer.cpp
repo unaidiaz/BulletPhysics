@@ -128,7 +128,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].brake = false;
 	car.wheels[3].steering = false;
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(40, 0, 230);
+	vehicle->SetPos(45, 0, 235);
 	vehicle->collision_listeners.add(this);
 	vehicle->SetId(1);
 	btQuaternion q;
@@ -221,7 +221,7 @@ update_status ModulePlayer::Update(float dt)
 			acceleration = MAX_ACCELERATION * 9;
 		}
 
-		if (App->scene_intro->lap == 0)
+		if (App->scene_intro->lap == 1)
 		{
 			App->scene_intro->wall1.color.Set(0, 255, 255);
 			App->scene_intro->wall2.color.Set(0, 255, 255);
@@ -243,7 +243,7 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[17].color = Lila;
 		}
 
-		if (App->scene_intro->lap == 1)
+		if (App->scene_intro->lap == 2)
 		{
 			App->scene_intro->wall1.color.Set(0, 0, 255);
 			App->scene_intro->wall2.color.Set(0, 0, 255);
@@ -263,9 +263,20 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[15].color = Pink;
 			App->scene_intro->limits[16].color = Pink;
 			App->scene_intro->limits[17].color = Pink;
+			App->scene_intro->limits[60].color = Pink;
+			App->scene_intro->limits[37].color = Red;
+			App->scene_intro->limits[38].color = Red;
+			App->scene_intro->limits[41].color = Red;
+			App->scene_intro->limits[42].color = Red;
+			App->scene_intro->limits[45].color = Red;
+			App->scene_intro->limits[46].color = Red;
+			App->scene_intro->limits[52].color = Red;
+			App->scene_intro->limits[53].color = Red;
+			App->scene_intro->limits[49].color = Red;
+			App->scene_intro->limits[50].color = Red;
 		}
 
-		if (App->scene_intro->lap == 2)
+		if (App->scene_intro->lap == 3)
 		{
 			App->scene_intro->wall1.color = Black;
 			App->scene_intro->wall2.color = Black;
@@ -285,9 +296,20 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[15].color = Cyan;
 			App->scene_intro->limits[16].color = Cyan;
 			App->scene_intro->limits[17].color = Cyan;
+			App->scene_intro->limits[60].color = Cyan;
+			App->scene_intro->limits[37].color = Red;
+			App->scene_intro->limits[38].color = Red;
+			App->scene_intro->limits[41].color = Red;
+			App->scene_intro->limits[42].color = Red;
+			App->scene_intro->limits[45].color = Red;
+			App->scene_intro->limits[46].color = Red;
+			App->scene_intro->limits[52].color = Red;
+			App->scene_intro->limits[53].color = Red;
+			App->scene_intro->limits[49].color = Red;
+			App->scene_intro->limits[50].color = Red;
 		}
 
-		if (App->scene_intro->lap == 3)
+		if (App->scene_intro->lap == 4)
 		{
 			App->camera->finish = true;
 			App->audio->PlayMusic("Assets/win.ogg", 0.0f);
@@ -384,6 +406,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 			App->scene_intro->timer += 7;
 			App->scene_intro->passedCheckpoints = 0;
 			App->scene_intro->sensor[1].wire = false;
+			App->scene_intro->limits[37].color = Green;
+			App->scene_intro->limits[38].color = Green;
 		}
 	}
 	else if (body2->id == 3 && App->scene_intro->sensor[1].wire == false)
@@ -393,6 +417,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->sensor[1].wire = true;
 		App->scene_intro->timer += 7;
 		App->scene_intro->sensor[2].wire = false;
+		App->scene_intro->limits[41].color = Green;
+		App->scene_intro->limits[42].color = Green;
 	}
 	else if (body2->id == 4 && App->scene_intro->sensor[2].wire == false)
 	{
@@ -402,6 +428,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->timer += 7;
 		App->scene_intro->sensor[3].wire = false;
 		App->scene_intro->sensor[4].wire = false;
+		App->scene_intro->limits[45].color = Green;
+		App->scene_intro->limits[46].color = Green;
 	}
 	else if (body2->id == 5 && App->scene_intro->sensor[3].wire == false)
 	{
@@ -411,6 +439,9 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->timer += 7;
 		App->scene_intro->sensor[4].wire = true;
 		App->scene_intro->sensor[0].wire = false;
+		App->scene_intro->limits[52].color = Green;
+		App->scene_intro->limits[53].color = Green;
+
 	}
 	else if (body2->id == 6 && App->scene_intro->sensor[4].wire == false)
 	{
@@ -420,6 +451,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->timer += 7;
 		App->scene_intro->sensor[3].wire = true;
 		App->scene_intro->sensor[0].wire = false;
+		App->scene_intro->limits[49].color = Green;
+		App->scene_intro->limits[50].color = Green;
 	}
 	else if (body2->id == 7)
 	{
@@ -445,7 +478,7 @@ void ModulePlayer::restart()
 	btQuaternion q;
 	q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
 	vehicle->SetRotation(q);
-	App->scene_intro->lap = 0;
+	App->scene_intro->lap = 1;
 	App->scene_intro->passedCheckpoints = 0;
 	App->scene_intro->timer = INITIAL_TIME;
 	App->scene_intro->sensor[0].wire = true;
@@ -480,7 +513,7 @@ void ModulePlayer::checkpointReapear(int checkpointPassed)
 	case 1:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(255, 0, 150);
+		vehicle->SetPos(235, 0, 150);
 		q.setEuler(btScalar(90 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
@@ -488,7 +521,7 @@ void ModulePlayer::checkpointReapear(int checkpointPassed)
 	case 2:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(355, 0, 338);
+		vehicle->SetPos(335, 0, 338);
 		q.setEuler(btScalar(90 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
@@ -496,7 +529,7 @@ void ModulePlayer::checkpointReapear(int checkpointPassed)
 	case 3:
 		turn = 0;
 		acceleration = 0;
-		vehicle->SetPos(480, 0, 442);
+		vehicle->SetPos(475, 0, 442);
 		q.setEuler(btScalar(270 * DEGTORAD), btScalar(0), btScalar(0));
 		vehicle->SetRotation(q);
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));

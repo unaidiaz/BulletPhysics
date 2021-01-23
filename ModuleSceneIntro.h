@@ -58,7 +58,7 @@ public:
 
 	uint timer = INITIAL_TIME;
 	uint frames = 0;
-	uint lap = 0;
+	uint lap = 1;
 	uint secondsSinceInit;
 
 	int passedCheckpoints;

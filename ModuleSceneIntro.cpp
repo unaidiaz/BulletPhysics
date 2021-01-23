@@ -94,7 +94,7 @@ bool ModuleSceneIntro::Start()
 	ramp[0].size.x = 25;
 	ramp[0].size.y = 2;
 	ramp[0].size.z = 40;
-	ramp[0].axis = true;
+	ramp[0].axis = false;
 	ramp[0].color = White;
 	App->physics->AddBody(ramp[0], 0);
 
@@ -103,7 +103,7 @@ bool ModuleSceneIntro::Start()
 	ramp[1].size.x = 25;
 	ramp[1].size.y = 2;
 	ramp[1].size.z = 40;
-	ramp[1].axis = true;
+	ramp[1].axis = false;
 	ramp[1].color = Black;
 	App->physics->AddBody(ramp[1], 0);
 
@@ -112,7 +112,7 @@ bool ModuleSceneIntro::Start()
 	ramp[2].size.x = 25;
 	ramp[2].size.y = 2;
 	ramp[2].size.z = 40;
-	ramp[2].axis = true;
+	ramp[2].axis = false;
 	ramp[2].color = White;
 	App->physics->AddBody(ramp[2], 0);
 
@@ -121,7 +121,7 @@ bool ModuleSceneIntro::Start()
 	ramp[3].size.x = 25;
 	ramp[3].size.y = 2;
 	ramp[3].size.z = 40;
-	ramp[3].axis = true;
+	ramp[3].axis = false;
 	ramp[3].color = Black;
 	App->physics->AddBody(ramp[3], 0);
 
@@ -130,7 +130,7 @@ bool ModuleSceneIntro::Start()
 	ramp[4].size.x = 25;
 	ramp[4].size.y = 2;
 	ramp[4].size.z = 40;
-	ramp[4].axis = true;
+	ramp[4].axis = false;
 	ramp[4].color = White;
 	App->physics->AddBody(ramp[4], 0);
 
@@ -139,7 +139,7 @@ bool ModuleSceneIntro::Start()
 	ramp[5].size.x = 25;
 	ramp[5].size.y = 2;
 	ramp[5].size.z = 40;
-	ramp[5].axis = true;
+	ramp[5].axis = false;
 	ramp[5].color = Black;
 	App->physics->AddBody(ramp[5], 0);
 
@@ -148,7 +148,7 @@ bool ModuleSceneIntro::Start()
 	ramp[6].size.x = 25;
 	ramp[6].size.y = 2;
 	ramp[6].size.z = 40;
-	ramp[6].axis = true;
+	ramp[6].axis = false;
 	ramp[6].color = White;
 	App->physics->AddBody(ramp[6], 0);
 
@@ -157,7 +157,7 @@ bool ModuleSceneIntro::Start()
 	ramp[7].size.x = 25;
 	ramp[7].size.y = 2;
 	ramp[7].size.z = 40;
-	ramp[7].axis = true;
+	ramp[7].axis = false;
 	ramp[7].color = Black;
 	App->physics->AddBody(ramp[7], 0);
 
@@ -166,7 +166,7 @@ bool ModuleSceneIntro::Start()
 	ramp[8].size.x = 25;
 	ramp[8].size.y = 2;
 	ramp[8].size.z = 40;
-	ramp[8].axis = true;
+	ramp[8].axis = false;
 	ramp[8].color = White;
 	App->physics->AddBody(ramp[8], 0);
 
@@ -175,7 +175,7 @@ bool ModuleSceneIntro::Start()
 	ramp[9].size.x = 25;
 	ramp[9].size.y = 2;
 	ramp[9].size.z = 40;
-	ramp[9].axis = true;
+	ramp[9].axis = false;
 	ramp[9].color = White;
 	App->physics->AddBody(ramp[9], 0);
 
@@ -184,7 +184,7 @@ bool ModuleSceneIntro::Start()
 	ramp[10].size.x = 25;
 	ramp[10].size.y = 2;
 	ramp[10].size.z = 40;
-	ramp[10].axis = true;
+	ramp[10].axis = false;
 	ramp[10].color = Black;
 	App->physics->AddBody(ramp[10], 0);
 
@@ -193,7 +193,7 @@ bool ModuleSceneIntro::Start()
 	ramp[11].size.x = 25;
 	ramp[11].size.y = 2;
 	ramp[11].size.z = 40;
-	ramp[11].axis = true;
+	ramp[11].axis = false;
 	ramp[11].color = White;
 	App->physics->AddBody(ramp[11], 0);
 
@@ -202,7 +202,7 @@ bool ModuleSceneIntro::Start()
 	ramp[12].size.x = 25;
 	ramp[12].size.y = 2;
 	ramp[12].size.z = 40;
-	ramp[12].axis = true;
+	ramp[12].axis = false;
 	ramp[12].color = Black;
 	App->physics->AddBody(ramp[12], 0);
 
@@ -211,7 +211,7 @@ bool ModuleSceneIntro::Start()
 	ramp[13].size.x = 25;
 	ramp[13].size.y = 2;
 	ramp[13].size.z = 40;
-	ramp[13].axis = true;
+	ramp[13].axis = false;
 	ramp[13].color = White;
 	App->physics->AddBody(ramp[13], 0);
 
@@ -220,7 +220,7 @@ bool ModuleSceneIntro::Start()
 	ramp[14].size.x = 25;
 	ramp[14].size.y = 2;
 	ramp[14].size.z = 40;
-	ramp[14].axis = true;
+	ramp[14].axis = false;
 	ramp[14].color = Black;
 	App->physics->AddBody(ramp[14], 0);
 
@@ -229,7 +229,7 @@ bool ModuleSceneIntro::Start()
 	ramp[15].size.x = 25;
 	ramp[15].size.y = 2;
 	ramp[15].size.z = 40;
-	ramp[15].axis = true;
+	ramp[15].axis = false;
 	ramp[15].color = White;
 	App->physics->AddBody(ramp[15], 0);
 
@@ -238,7 +238,7 @@ bool ModuleSceneIntro::Start()
 	ramp[16].size.x = 25;
 	ramp[16].size.y = 2;
 	ramp[16].size.z = 40;
-	ramp[16].axis = true;
+	ramp[16].axis = false;
 	ramp[16].color = Black;
 	App->physics->AddBody(ramp[16], 0);
 
@@ -253,7 +253,7 @@ bool ModuleSceneIntro::Start()
 	ramp[34].size.x = 60;
 	ramp[34].size.y = 2;
 	ramp[34].size.z = 65;
-	ramp[34].axis = true;
+	ramp[34].axis = false;
 	ramp[34].color = Red;
 	App->physics->AddBody(ramp[34], 0);
 	
@@ -268,16 +268,16 @@ bool ModuleSceneIntro::Start()
 	ramp[17].size.x = 250;
 	ramp[17].size.y = 2;
 	ramp[17].size.z = 20;
-	ramp[17].axis = true;
+	ramp[17].axis = false;
 	ramp[17].color = White;
 	App->physics->AddBody(ramp[17], 0);
 
 	ramp[18].SetPos(256, 4, 459);
 	ramp[18].SetRotation(40.0f, { 1,0,0 });
-	ramp[18].size.x = 250;
+	ramp[18].size.x = 250.1;
 	ramp[18].size.y = 2;
 	ramp[18].size.z = 20;
-	ramp[18].axis = true;
+	ramp[18].axis = false;
 	ramp[18].color = Black;
 	App->physics->AddBody(ramp[18], 0);
 
@@ -286,16 +286,16 @@ bool ModuleSceneIntro::Start()
 	ramp[19].size.x = 250;
 	ramp[19].size.y = 2;
 	ramp[19].size.z = 20;
-	ramp[19].axis = true;
+	ramp[19].axis = false;
 	ramp[19].color = White;
 	App->physics->AddBody(ramp[19], 0);
 
 	ramp[20].SetPos(256, 20, 448);
 	ramp[20].SetRotation(80.0f, { 1,0,0 });
-	ramp[20].size.x = 250;
+	ramp[20].size.x = 250.1;
 	ramp[20].size.y = 2;
 	ramp[20].size.z = 20;
-	ramp[20].axis = true;
+	ramp[20].axis = false;
 	ramp[20].color = Black;
 	App->physics->AddBody(ramp[20], 0);
 
@@ -304,16 +304,16 @@ bool ModuleSceneIntro::Start()
 	ramp[21].size.x = 250;
 	ramp[21].size.y = 2;
 	ramp[21].size.z = 20;
-	ramp[21].axis = true;
+	ramp[21].axis = false;
 	ramp[21].color = White;
 	App->physics->AddBody(ramp[21], 0);
 
 	ramp[22].SetPos(256, 45, 453);
 	ramp[22].SetRotation(120.0f, { 1,0,0 });
-	ramp[22].size.x = 250;
+	ramp[22].size.x = 250.1;
 	ramp[22].size.y = 2;
 	ramp[22].size.z = 20;
-	ramp[22].axis = true;
+	ramp[22].axis = false;
 	ramp[22].color = Black;
 	App->physics->AddBody(ramp[22], 0);
 
@@ -322,16 +322,16 @@ bool ModuleSceneIntro::Start()
 	ramp[23].size.x = 250;
 	ramp[23].size.y = 2;
 	ramp[23].size.z = 20;
-	ramp[23].axis = true;
+	ramp[23].axis = false;
 	ramp[23].color = White;
 	App->physics->AddBody(ramp[23], 0);
 
 	ramp[24].SetPos(256, 54, 465);
 	ramp[24].SetRotation(160.0f, { 1,0,0 });
-	ramp[24].size.x = 250;
+	ramp[24].size.x = 250.1;
 	ramp[24].size.y = 2;
 	ramp[24].size.z = 20;
-	ramp[24].axis = true;
+	ramp[24].axis = false;
 	ramp[24].color = Black;
 	App->physics->AddBody(ramp[24], 0);
 
@@ -340,7 +340,7 @@ bool ModuleSceneIntro::Start()
 	ramp[25].size.x = 250;
 	ramp[25].size.y = 2;
 	ramp[25].size.z = 20;
-	ramp[25].axis = true;
+	ramp[25].axis = false;
 	ramp[25].color = White;
 	App->physics->AddBody(ramp[25], 0);
 
@@ -349,16 +349,16 @@ bool ModuleSceneIntro::Start()
 	ramp[26].size.x = 250;
 	ramp[26].size.y = 2;
 	ramp[26].size.z = 20;
-	ramp[26].axis = true;
+	ramp[26].axis = false;
 	ramp[26].color = White;
 	App->physics->AddBody(ramp[26], 0);
 
 	ramp[27].SetPos(256, 4, 491);
 	ramp[27].SetRotation(-40.0f, { 1,0,0 });
-	ramp[27].size.x = 250;
+	ramp[27].size.x = 250.1;
 	ramp[27].size.y = 2;
 	ramp[27].size.z = 20;
-	ramp[27].axis = true;
+	ramp[27].axis = false;
 	ramp[27].color = Black;
 	App->physics->AddBody(ramp[27], 0);
 
@@ -367,16 +367,16 @@ bool ModuleSceneIntro::Start()
 	ramp[28].size.x = 250;
 	ramp[28].size.y = 2;
 	ramp[28].size.z = 20;
-	ramp[28].axis = true;
+	ramp[28].axis = false;
 	ramp[28].color = White;
 	App->physics->AddBody(ramp[28], 0);
 
 	ramp[29].SetPos(256, 20, 502);
 	ramp[29].SetRotation(-80.0f, { 1,0,0 });
-	ramp[29].size.x = 250;
+	ramp[29].size.x = 250.1;
 	ramp[29].size.y = 2;
 	ramp[29].size.z = 20;
-	ramp[29].axis = true;
+	ramp[29].axis = false;
 	ramp[29].color = Black;
 	App->physics->AddBody(ramp[29], 0);
 
@@ -385,16 +385,16 @@ bool ModuleSceneIntro::Start()
 	ramp[30].size.x = 250;
 	ramp[30].size.y = 2;
 	ramp[30].size.z = 20;
-	ramp[30].axis = true;
+	ramp[30].axis = false;
 	ramp[30].color = White;
 	App->physics->AddBody(ramp[30], 0);
 
 	ramp[31].SetPos(256, 45, 497);
 	ramp[31].SetRotation(-120.0f, { 1,0,0 });
-	ramp[31].size.x = 250;
+	ramp[31].size.x = 250.1;
 	ramp[31].size.y = 2;
 	ramp[31].size.z = 20;
-	ramp[31].axis = true;
+	ramp[31].axis = false;
 	ramp[31].color = Black;
 	App->physics->AddBody(ramp[31], 0);
 
@@ -403,129 +403,129 @@ bool ModuleSceneIntro::Start()
 	ramp[32].size.x = 250;
 	ramp[32].size.y = 2;
 	ramp[32].size.z = 20;
-	ramp[32].axis = true;
+	ramp[32].axis = false;
 	ramp[32].color = White;
 	App->physics->AddBody(ramp[32], 0);
 
 	ramp[33].SetPos(256, 54, 485);
 	ramp[33].SetRotation(-160.0f, { 1,0,0 });
-	ramp[33].size.x = 250;
+	ramp[33].size.x = 250.1;
 	ramp[33].size.y = 2;
 	ramp[33].size.z = 20;
-	ramp[33].axis = true;
+	ramp[33].axis = false;
 	ramp[33].color = Black;
 	App->physics->AddBody(ramp[33], 0);
 
 	//Limits-------------------
 	limits[0].SetPos(256, 0, 56);
 	limits[0].size.x = 47;
-	limits[0].size.y = 40;
+	limits[0].size.y = 60;
 	limits[0].size.z = 111;
-	limits[0].axis = true;
+	limits[0].axis = false;
 	limits[0].color = Lila;
 	App->physics->AddBody(limits[0], 0);
 
 	limits[1].SetPos(396, 0, 135);
 	limits[1].size.x = 47;
-	limits[1].size.y = 40;
+	limits[1].size.y = 60;
 	limits[1].size.z = 79;
-	limits[1].axis = true;
+	limits[1].axis = false;
 	limits[1].color = Lila;
 	App->physics->AddBody(limits[1], 0);
 
 	limits[2].SetPos(109, 0, 187);
 	limits[2].size.x = 43;
-	limits[2].size.y = 40;
+	limits[2].size.y = 60;
 	limits[2].size.z = 195;
-	limits[2].axis = true;
+	limits[2].axis = false;
 	limits[2].color = Lila;
 	App->physics->AddBody(limits[2], 0);
 
 	limits[3].SetPos(103, 0, 327);
 	limits[3].size.x = 31;
-	limits[3].size.y = 40;
+	limits[3].size.y = 60;
 	limits[3].size.z = 91;
-	limits[3].axis = true;
+	limits[3].axis = false;
 	limits[3].color = Lila;
 	App->physics->AddBody(limits[3], 0);
 
 	limits[4].SetPos(255, 0, 440);
 	limits[4].size.x = 335;
-	limits[4].size.y = 40;
+	limits[4].size.y = 60;
 	limits[4].size.z = 9;
-	limits[4].axis = true;
+	limits[4].axis = false;
 	limits[4].color = Lila;
 	App->physics->AddBody(limits[4], 0);
 
 	limits[5].SetPos(255, 0, 376);
 	limits[5].size.x = 335;
-	limits[5].size.y = 40;
+	limits[5].size.y = 60;
 	limits[5].size.z = 9;
-	limits[5].axis = true;
+	limits[5].axis = false;
 	limits[5].color = Lila;
 	App->physics->AddBody(limits[5], 0);
 
 	limits[7].SetPos(462, 0, 260);
 	limits[7].size.x = 100;
-	limits[7].size.y = 40;
+	limits[7].size.y = 60;
 	limits[7].size.z = 23;
-	limits[7].axis = true;
+	limits[7].axis = false;
 	limits[7].color = Lila;
 	App->physics->AddBody(limits[7], 0);
 
 	limits[8].SetPos(369, 0, 267);
 	limits[8].size.x = 87;
-	limits[8].size.y = 40;
+	limits[8].size.y = 60;
 	limits[8].size.z = 9;
-	limits[8].axis = true;
+	limits[8].axis = false;
 	limits[8].color = Lila;
 	App->physics->AddBody(limits[8], 0);
 
 	limits[9].SetPos(328, 0, 280);
 	limits[9].size.x = 5;
-	limits[9].size.y = 40;
+	limits[9].size.y = 60;
 	limits[9].size.z = 17;
-	limits[9].axis = true;
+	limits[9].axis = false;
 	limits[9].color = Lila;
 	App->physics->AddBody(limits[9], 0);
 
 	limits[55].SetPos(265, 0, 329);
 	limits[55].size.x = 50;
-	limits[55].size.y = 40;
+	limits[55].size.y = 60;
 	limits[55].size.z = 5;
-	limits[55].axis = true;
+	limits[55].axis = false;
 	limits[55].color = Lila;
 	App->physics->AddBody(limits[55], 0);
 
 	limits[14].SetPos(285, 0, 286);
 	limits[14].size.x = 81;
-	limits[14].size.y = 40;
+	limits[14].size.y = 60;
 	limits[14].size.z = 5;
-	limits[14].axis = true;
+	limits[14].axis = false;
 	limits[14].color = Lila;
 	App->physics->AddBody(limits[14], 0);
 
 	limits[15].SetPos(182, 0, 202);
 	limits[15].size.x = 105;
-	limits[15].size.y = 40;
+	limits[15].size.y = 60;
 	limits[15].size.z = 21;
-	limits[15].axis = true;
+	limits[15].axis = false;
 	limits[15].color = Lila;
 	App->physics->AddBody(limits[15], 0);
 
 	limits[16].SetPos(289, 0, 196);
 	limits[16].size.x = 109;
-	limits[16].size.y = 40;
+	limits[16].size.y = 60;
 	limits[16].size.z = 9;
-	limits[16].axis = true;
+	limits[16].axis = false;
 	limits[16].color = Lila;
 	App->physics->AddBody(limits[16], 0);
 
 	limits[17].SetPos(353, 0, 180);
 	limits[17].size.x = 39;
-	limits[17].size.y = 40;
+	limits[17].size.y = 60;
 	limits[17].size.z = 24;
-	limits[17].axis = true;
+	limits[17].axis = false;
 	limits[17].color = Lila;
 	App->physics->AddBody(limits[17], 0);
 
@@ -533,7 +533,7 @@ bool ModuleSceneIntro::Start()
 	limits[18].size.x = 51;
 	limits[18].size.y = 6;
 	limits[18].size.z = 115;
-	limits[18].axis = true;
+	limits[18].axis = false;
 	limits[18].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[18], 0);
 
@@ -541,7 +541,7 @@ bool ModuleSceneIntro::Start()
 	limits[19].size.x = 51;
 	limits[19].size.y = 6;
 	limits[19].size.z = 83;
-	limits[19].axis = true;
+	limits[19].axis = false;
 	limits[19].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[19], 0);
 
@@ -549,7 +549,7 @@ bool ModuleSceneIntro::Start()
 	limits[20].size.x = 47;
 	limits[20].size.y = 6;
 	limits[20].size.z = 199;
-	limits[20].axis = true;
+	limits[20].axis = false;
 	limits[20].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[20], 0);
 
@@ -557,7 +557,7 @@ bool ModuleSceneIntro::Start()
 	limits[21].size.x = 35;
 	limits[21].size.y = 6;
 	limits[21].size.z = 95;
-	limits[21].axis = true;
+	limits[21].axis = false;
 	limits[21].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[21], 0);
 
@@ -565,7 +565,7 @@ bool ModuleSceneIntro::Start()
 	limits[23].size.x = 339;
 	limits[23].size.y = 6;
 	limits[23].size.z = 13;
-	limits[23].axis = true;
+	limits[23].axis = false;
 	limits[23].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[23], 0);
 
@@ -573,7 +573,7 @@ bool ModuleSceneIntro::Start()
 	limits[24].size.x = 339;
 	limits[24].size.y = 6;
 	limits[24].size.z = 13;
-	limits[24].axis = true;
+	limits[24].axis = false;
 	limits[24].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[24], 0);
 
@@ -581,7 +581,7 @@ bool ModuleSceneIntro::Start()
 	limits[25].size.x = 104;
 	limits[25].size.y = 6;
 	limits[25].size.z = 27;
-	limits[25].axis = true;
+	limits[25].axis = false;
 	limits[25].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[25], 0);
 
@@ -589,7 +589,7 @@ bool ModuleSceneIntro::Start()
 	limits[26].size.x = 91;
 	limits[26].size.y = 6;
 	limits[26].size.z = 13;
-	limits[26].axis = true;
+	limits[26].axis = false;
 	limits[26].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[26], 0);
 
@@ -597,7 +597,7 @@ bool ModuleSceneIntro::Start()
 	limits[27].size.x = 9;
 	limits[27].size.y = 6;
 	limits[27].size.z = 21;
-	limits[27].axis = true;
+	limits[27].axis = false;
 	limits[27].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[27], 0);
 
@@ -605,7 +605,7 @@ bool ModuleSceneIntro::Start()
 	limits[28].size.x = 85;
 	limits[28].size.y = 6;
 	limits[28].size.z = 9;
-	limits[28].axis = true;
+	limits[28].axis = false;
 	limits[28].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[28], 0);
 
@@ -613,7 +613,7 @@ bool ModuleSceneIntro::Start()
 	limits[29].size.x = 109;
 	limits[29].size.y = 6;
 	limits[29].size.z = 25;
-	limits[29].axis = true;
+	limits[29].axis = false;
 	limits[29].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[29], 0);
 
@@ -621,7 +621,7 @@ bool ModuleSceneIntro::Start()
 	limits[30].size.x = 113;
 	limits[30].size.y = 6;
 	limits[30].size.z = 13;
-	limits[30].axis = true;
+	limits[30].axis = false;
 	limits[30].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[30], 0);
 
@@ -629,72 +629,89 @@ bool ModuleSceneIntro::Start()
 	limits[31].size.x = 43;
 	limits[31].size.y = 6;
 	limits[31].size.z = 28;
-	limits[31].axis = true;
+	limits[31].axis = false;
 	limits[31].color.Set(225, 0, 0);
 	App->physics->AddBody(limits[31], 0);
 
-	limits[32].SetPos(17, 0, 213);
+	limits[32].SetPos(22, 0, 213);
 	limits[32].size.x = 2;
 	limits[32].size.y = 46;
 	limits[32].size.z = 2;
-	limits[32].axis = true;
-	limits[32].color.Set(225, 225, 225);
+	limits[32].axis = false;
+	limits[32].color = White;
 	App->physics->AddBody(limits[32], 0);
 
-	limits[33].SetPos(61, 0, 213);
+	limits[33].SetPos(66, 0, 213);
 	limits[33].size.x = 2;
 	limits[33].size.y = 46;
 	limits[33].size.z = 2;
-	limits[33].axis = true;
-	limits[33].color.Set(225, 225, 225);
+	limits[33].axis = false;
+	limits[33].color = White;
 	App->physics->AddBody(limits[33], 0);
 
 	limits[57].SetPos(265, 0, 329);
 	limits[57].size.x = 54;
 	limits[57].size.y = 6;
 	limits[57].size.z = 9;
-	limits[57].axis = true;
+	limits[57].axis = false;
 	limits[57].color.Set(255, 0, 0);
 	App->physics->AddBody(limits[57], 0);
 
-	limits[56].SetPos(39, 20, 213);
+	limits[56].SetPos(44, 20, 213);
 	limits[56].size.x = 42;
 	limits[56].size.y = 6;
 	limits[56].size.z = 2;
-	limits[56].axis = true;
-	limits[56].color.Set(0, 0, 0);
-	App->physics->AddBody(limits[34], 0);
+	limits[56].axis = false;
+	limits[56].color = Black;
+	App->physics->AddBody(limits[56], 0);
+
+	limits[60].SetPos(250, 0, 475);
+	limits[60].size.x = 8;
+	limits[60].size.y = 60;
+	limits[60].size.z = 65;
+	limits[60].axis = false;
+	limits[60].color = Lila;
+	App->physics->AddBody(limits[60], 0);
+
+	limits[61].SetPos(250, 0, 475);
+	limits[61].size.x = 12;
+	limits[61].size.y = 6;
+	limits[61].size.z = 69;
+	limits[61].axis = false;
+	limits[61].color.Set(255, 0, 0);
+	App->physics->AddBody(limits[61], 0);
+
 
 	//CHECKPOINT1----------------------------------------------
-	limits[35].SetPos(11, 0, 213);
+	limits[35].SetPos(16, 0, 213);
 	limits[35].size.x = 1;
 	limits[35].size.y = 15;
 	limits[35].size.z = 1;
-	limits[35].axis = true;
+	limits[35].axis = false;
 	limits[35].color = White;
 	App->physics->AddBody(limits[35], 0);
 
-	limits[36].SetPos(67, 0, 213);
+	limits[36].SetPos(72, 0, 213);
 	limits[36].size.x = 1;
 	limits[36].size.y = 15;
 	limits[36].size.z = 1;
-	limits[36].axis = true;
+	limits[36].axis = false;
 	limits[36].color = White;
 	App->physics->AddBody(limits[36], 0);
 
-	limits[37].SetPos(11, 8, 213);
+	limits[37].SetPos(16, 8, 213);
 	limits[37].size.x = 4;
 	limits[37].size.y = 4;
 	limits[37].size.z = 4;
-	limits[37].axis = true;
+	limits[37].axis = false;
 	limits[37].color = Red;
 	App->physics->AddBody(limits[37], 0);
 
-	limits[38].SetPos(67, 8, 213);
+	limits[38].SetPos(72, 8, 213);
 	limits[38].size.x = 4;
 	limits[38].size.y = 4;
 	limits[38].size.z = 4;
-	limits[38].axis = true;
+	limits[38].axis = false;
 	limits[38].color = Red;
 	App->physics->AddBody(limits[38], 0);
 
@@ -703,7 +720,7 @@ bool ModuleSceneIntro::Start()
 	limits[39].size.x = 1;
 	limits[39].size.y = 15;
 	limits[39].size.z = 1;
-	limits[39].axis = true;
+	limits[39].axis = false;
 	limits[39].color = White;
 	App->physics->AddBody(limits[39], 0);
 
@@ -711,7 +728,7 @@ bool ModuleSceneIntro::Start()
 	limits[40].size.x = 1;
 	limits[40].size.y = 15;
 	limits[40].size.z = 1;
-	limits[40].axis = true;
+	limits[40].axis = false;
 	limits[40].color = White;
 	App->physics->AddBody(limits[40], 0);
 
@@ -719,7 +736,7 @@ bool ModuleSceneIntro::Start()
 	limits[41].size.x = 4;
 	limits[41].size.y = 4;
 	limits[41].size.z = 4;
-	limits[41].axis = true;
+	limits[41].axis = false;
 	limits[41].color = Red;
 	App->physics->AddBody(limits[41], 0);
 
@@ -727,7 +744,7 @@ bool ModuleSceneIntro::Start()
 	limits[42].size.x = 4;
 	limits[42].size.y = 4;
 	limits[42].size.z = 4;
-	limits[42].axis = true;
+	limits[42].axis = false;
 	limits[42].color = Red;
 	App->physics->AddBody(limits[42], 0);
 
@@ -736,7 +753,7 @@ bool ModuleSceneIntro::Start()
 	limits[43].size.x = 1;
 	limits[43].size.y = 15;
 	limits[43].size.z = 1;
-	limits[43].axis = true;
+	limits[43].axis = false;
 	limits[43].color = White;
 	App->physics->AddBody(limits[43], 0);
 
@@ -744,7 +761,7 @@ bool ModuleSceneIntro::Start()
 	limits[44].size.x = 1;
 	limits[44].size.y = 15;
 	limits[44].size.z = 1;
-	limits[44].axis = true;
+	limits[44].axis = false;
 	limits[44].color = White;
 	App->physics->AddBody(limits[44], 0);
 
@@ -752,7 +769,7 @@ bool ModuleSceneIntro::Start()
 	limits[45].size.x = 4;
 	limits[45].size.y = 4;
 	limits[45].size.z = 4;
-	limits[45].axis = true;
+	limits[45].axis = false;
 	limits[45].color = Red;
 	App->physics->AddBody(limits[45], 0);
 
@@ -760,7 +777,7 @@ bool ModuleSceneIntro::Start()
 	limits[46].size.x = 4;
 	limits[46].size.y = 4;
 	limits[46].size.z = 4;
-	limits[46].axis = true;
+	limits[46].axis = false;
 	limits[46].color = Red;
 	App->physics->AddBody(limits[46], 0);
 
@@ -769,7 +786,7 @@ bool ModuleSceneIntro::Start()
 	limits[47].size.x = 1;
 	limits[47].size.y = 15;
 	limits[47].size.z = 1;
-	limits[47].axis = true;
+	limits[47].axis = false;
 	limits[47].color = White;
 	App->physics->AddBody(limits[47], 0);
 
@@ -777,7 +794,7 @@ bool ModuleSceneIntro::Start()
 	limits[48].size.x = 1;
 	limits[48].size.y = 15;
 	limits[48].size.z = 1;
-	limits[48].axis = true;
+	limits[48].axis = false;
 	limits[48].color = White;
 	App->physics->AddBody(limits[48], 0);
 
@@ -785,7 +802,7 @@ bool ModuleSceneIntro::Start()
 	limits[49].size.x = 4;
 	limits[49].size.y = 4;
 	limits[49].size.z = 4;
-	limits[49].axis = true;
+	limits[49].axis = false;
 	limits[49].color = Red;
 	App->physics->AddBody(limits[49], 0);
 
@@ -793,7 +810,7 @@ bool ModuleSceneIntro::Start()
 	limits[50].size.x = 4;
 	limits[50].size.y = 4;
 	limits[50].size.z = 4;
-	limits[50].axis = true;
+	limits[50].axis = false;
 	limits[50].color = Red;
 	App->physics->AddBody(limits[50], 0);
 
@@ -802,7 +819,7 @@ bool ModuleSceneIntro::Start()
 	limits[51].size.x = 1;
 	limits[51].size.y = 15;
 	limits[51].size.z = 1;
-	limits[51].axis = true;
+	limits[51].axis = false;
 	limits[51].color = White;
 	App->physics->AddBody(limits[51], 0);
 
@@ -810,7 +827,7 @@ bool ModuleSceneIntro::Start()
 	limits[52].size.x = 1;
 	limits[52].size.y = 15;
 	limits[52].size.z = 1;
-	limits[52].axis = true;
+	limits[52].axis = false;
 	limits[52].color = White;
 	App->physics->AddBody(limits[52], 0);
 
@@ -818,20 +835,13 @@ bool ModuleSceneIntro::Start()
 	limits[53].size.x = 4;
 	limits[53].size.y = 4;
 	limits[53].size.z = 4;
-	limits[53].axis = true;
+	limits[53].axis = false;
 	limits[53].color = Red;
 	App->physics->AddBody(limits[53], 0);
 
-	limits[54].SetPos(400, 8, 455);
-	limits[54].size.x = 4;
-	limits[54].size.y = 4;
-	limits[54].size.z = 4;
-	limits[54].axis = true;
-	limits[54].color = Red;
-	App->physics->AddBody(limits[54], 0);
 	//Sensor------------------------------
 
-	sensor[0].SetPos(39, 0, 213);
+	sensor[0].SetPos(44, 0, 213);
 	sensor[0].size.x = 40;
 	sensor[0].size.y = 15;
 	sensor[0].size.z = 1;
@@ -842,7 +852,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(2);
 
-	sensor[1].SetPos(255, 0, 150);
+	sensor[1].SetPos(248, 0, 150);
 	sensor[1].size.x = 1;
 	sensor[1].size.y = 15;
 	sensor[1].size.z = 40;
@@ -853,7 +863,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(3);
 
-	sensor[2].SetPos(355, 0, 338);
+	sensor[2].SetPos(348, 0, 338);
 	sensor[2].size.x = 1;
 	sensor[2].size.y = 15;
 	sensor[2].size.z = 40;
@@ -864,7 +874,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(4);
 
-	sensor[3].SetPos(400, 0, 476);
+	sensor[3].SetPos(407, 0, 476);
 	sensor[3].size.x = 1;
 	sensor[3].size.y = 15;
 	sensor[3].size.z = 30;
@@ -875,7 +885,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(5);
 
-	sensor[4].SetPos(400, 0, 408);
+	sensor[4].SetPos(407, 0, 408);
 	sensor[4].size.x = 1;
 	sensor[4].size.y = 15;
 	sensor[4].size.z = 30;
@@ -886,7 +896,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(6);
 
-	sensor[5].SetPos(37, 2, 350);
+	sensor[5].SetPos(42, 2, 350);
 	sensor[5].size.x = 40;
 	sensor[5].size.y = 1;
 	sensor[5].size.z = 15;
@@ -930,33 +940,33 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-	flag[0].SetPos(30, 17, 214);
+	flag[0].SetPos(35, 17, 214);
 	flag[0].size.x = 2;
 	flag[0].size.y = 2;
 	flag[0].size.z = 2;
-	flag[0].axis = true;
+	flag[0].axis = false;
 	flag[0].color = Black;
 	App->physics->AddBody(flag[0], 0);
 
-	flag[1].SetPos(40, 17, 214);
+	flag[1].SetPos(45, 17, 214);
 	flag[1].size.x = 2;
 	flag[1].size.y = 2;
 	flag[1].size.z = 2;
-	flag[1].axis = true;
+	flag[1].axis = false;
 	flag[1].color = Black;
 	App->physics->AddBody(flag[1], 0);
 
-	flag[2].SetPos(50, 17, 214);
+	flag[2].SetPos(55, 17, 214);
 	flag[2].size.x = 2;
 	flag[2].size.y = 2;
 	flag[2].size.z = 2;
-	flag[2].axis = true;
+	flag[2].axis = false;
 	flag[2].color = Black;
 	App->physics->AddBody(flag[2], 0);
 
 	//Grass--------------------------------
 	sensor[9].SetPos(256, 1.5, 56);
-	sensor[9].size.x = 66;
+	sensor[9].size.x = 71;
 	sensor[9].size.y = 0.5;
 	sensor[9].size.z = 130;
 	sensor[9].axis = false;
@@ -967,7 +977,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[10].SetPos(396, 1.5, 135);
-	sensor[10].size.x = 66;
+	sensor[10].size.x = 71;
 	sensor[10].size.y = 0.5;
 	sensor[10].size.z = 98;
 	sensor[10].axis = false;
@@ -978,7 +988,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[11].SetPos(109, 1.5, 187);
-	sensor[11].size.x = 62;
+	sensor[11].size.x = 71;
 	sensor[11].size.y = 0.5;
 	sensor[11].size.z = 214;
 	sensor[11].axis = false;
@@ -989,7 +999,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[12].SetPos(103, 1.5, 327);
-	sensor[12].size.x = 50;
+	sensor[12].size.x = 55;
 	sensor[12].size.y = 0.5;
 	sensor[12].size.z = 110;
 	sensor[12].axis = false;
@@ -1000,7 +1010,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[13].SetPos(255, 1.5, 376);
-	sensor[13].size.x = 354;
+	sensor[13].size.x = 359;
 	sensor[13].size.y = 0.5;
 	sensor[13].size.z = 28;
 	sensor[13].axis = false;
@@ -1022,7 +1032,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[15].SetPos(462, 1.5, 260);
-	sensor[15].size.x = 119;
+	sensor[15].size.x = 124;
 	sensor[15].size.y = 0.5;
 	sensor[15].size.z = 42;
 	sensor[15].axis = false;
@@ -1033,7 +1043,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[16].SetPos(369, 1.5, 267);
-	sensor[16].size.x = 106;
+	sensor[16].size.x = 111;
 	sensor[16].size.y = 0.5;
 	sensor[16].size.z = 28;
 	sensor[16].axis = false;
@@ -1044,7 +1054,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[17].SetPos(328, 1.5, 280);
-	sensor[17].size.x = 24;
+	sensor[17].size.x = 29;
 	sensor[17].size.y = 0.5;
 	sensor[17].size.z = 36;
 	sensor[17].axis = false;
@@ -1055,7 +1065,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[18].SetPos(285, 1.5, 286);
-	sensor[18].size.x = 100;
+	sensor[18].size.x = 105;
 	sensor[18].size.y = 0.5;
 	sensor[18].size.z = 24;
 	sensor[18].axis = false;
@@ -1066,7 +1076,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[19].SetPos(182, 1.5, 202);
-	sensor[19].size.x = 124;
+	sensor[19].size.x = 129;
 	sensor[19].size.y = 0.5;
 	sensor[19].size.z = 40;
 	sensor[19].axis = false;
@@ -1077,7 +1087,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[20].SetPos(289, 1.5, 196);
-	sensor[20].size.x = 128;
+	sensor[20].size.x = 133;
 	sensor[20].size.y = 0.5;
 	sensor[20].size.z = 28;
 	sensor[20].axis = false;
@@ -1088,7 +1098,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[21].SetPos(353, 1.5, 180);
-	sensor[21].size.x = 58;
+	sensor[21].size.x = 63;
 	sensor[21].size.y = 0.5;
 	sensor[21].size.z = 43;
 	sensor[21].axis = false;
@@ -1099,7 +1109,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[22].SetPos(0, 1.5, 256);
-	sensor[22].size.x = 24;
+	sensor[22].size.x = 29;
 	sensor[22].size.y = 0.5;
 	sensor[22].size.z = 512;
 	sensor[22].axis = false;
@@ -1110,7 +1120,7 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetId(8);
 
 	sensor[23].SetPos(512, 1.5, 256);
-	sensor[23].size.x = 24;
+	sensor[23].size.x = 55;
 	sensor[23].size.y = 0.5;
 	sensor[23].size.z = 512;
 	sensor[23].axis = false;
@@ -1123,7 +1133,7 @@ bool ModuleSceneIntro::Start()
 	sensor[24].SetPos(256, 1.5, 0);
 	sensor[24].size.x = 512;
 	sensor[24].size.y = 0.5;
-	sensor[24].size.z = 24;
+	sensor[24].size.z = 50;
 	sensor[24].axis = false;
 	sensor[24].wire = false;
 	sensor[24].color = Break;
@@ -1141,6 +1151,18 @@ bool ModuleSceneIntro::Start()
 	physSensor = App->physics->AddBody(sensor[25], 0);
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(8);
+
+	sensor[26].SetPos(445, 1.5, 286);
+	sensor[26].size.x = 230;
+	sensor[26].size.y = 0.5;
+	sensor[26].size.z = 24;
+	sensor[26].axis = false;
+	sensor[26].wire = false;
+	sensor[26].color = Break;
+	physSensor = App->physics->AddBody(sensor[26], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
 
 	return ret;
 }
