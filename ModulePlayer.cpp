@@ -360,7 +360,15 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->Render();
 
 	char title[80];
-	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
+
+	if (App->scene_intro->lap != 4)
+	{
+		sprintf_s(title, "In Run --> %.1f Km/h --- Lap %d --- Time Left %d s", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
+	}
+	if (App->scene_intro->lap == 4)
+	{
+		sprintf_s(title, "Your Score --> %d", (App->scene_intro->timer * 100));
+	}
 	App->window->SetTitle(title);
 
 	return UPDATE_CONTINUE;
@@ -473,6 +481,14 @@ void ModulePlayer::restart()
 	App->scene_intro->flag[0].color = Black;
 	App->scene_intro->flag[1].color = Black;
 	App->scene_intro->flag[2].color = Black;
+	App->scene_intro->limits[41].color = Red;
+	App->scene_intro->limits[42].color = Red;
+	App->scene_intro->limits[45].color = Red;
+	App->scene_intro->limits[46].color = Red;
+	App->scene_intro->limits[53].color = Red;
+	App->scene_intro->limits[54].color = Red;
+	App->scene_intro->limits[49].color = Red;
+	App->scene_intro->limits[50].color = Red;
 	App->camera->finish = false;
 	playMusic = true;
 	App->audio->PlayFx(startFx);
