@@ -242,15 +242,173 @@ bool ModuleSceneIntro::Start()
 	ramp[16].color = Black;
 	App->physics->AddBody(ramp[16], 0);
 
-	ramp[16].SetPos(300, 0, 500);
-	ramp[16].SetRotation(-5.0f, { 0,0,1 });
-	ramp[16].size.x = 25;
-	ramp[16].size.y = 2;
-	ramp[16].size.z = 40;
-	ramp[16].axis = true;
-	ramp[16].color = Red;
-	App->physics->AddBody(ramp[16], 0);
+	ramp[34].SetPos(300, 0, 500);
+	ramp[34].SetRotation(-5.0f, { 0,0,1 });
+	ramp[34].size.x = 25;
+	ramp[34].size.y = 2;
+	ramp[34].size.z = 40;
+	ramp[34].axis = true;
+	ramp[34].color = Red;
+	App->physics->AddBody(ramp[34], 0);
 
+
+	
+
+
+
+
+	ramp[17].SetPos(256, 0, 450);
+	ramp[17].SetRotation(20.0f, { 1,0,0 });
+	ramp[17].size.x = 250;
+	ramp[17].size.y = 2;
+	ramp[17].size.z = 20;
+	ramp[17].axis = true;
+	ramp[17].color = White;
+	App->physics->AddBody(ramp[17], 0);
+
+	ramp[18].SetPos(256, 4, 442);
+	ramp[18].SetRotation(40.0f, { 1,0,0 });
+	ramp[18].size.x = 250;
+	ramp[18].size.y = 2;
+	ramp[18].size.z = 20;
+	ramp[18].axis = true;
+	ramp[18].color = Black;
+	App->physics->AddBody(ramp[18], 0);
+
+	ramp[19].SetPos(256, 10, 436);
+	ramp[19].SetRotation(60.0f, { 1,0,0 });
+	ramp[19].size.x = 250;
+	ramp[19].size.y = 2;
+	ramp[19].size.z = 20;
+	ramp[19].axis = true;
+	ramp[19].color = White;
+	App->physics->AddBody(ramp[19], 0);
+
+	ramp[20].SetPos(256, 20, 431);
+	ramp[20].SetRotation(80.0f, { 1,0,0 });
+	ramp[20].size.x = 250;
+	ramp[20].size.y = 2;
+	ramp[20].size.z = 20;
+	ramp[20].axis = true;
+	ramp[20].color = Black;
+	App->physics->AddBody(ramp[20], 0);
+
+	ramp[21].SetPos(256, 35, 431);
+	ramp[21].SetRotation(100.0f, { 1,0,0 });
+	ramp[21].size.x = 250;
+	ramp[21].size.y = 2;
+	ramp[21].size.z = 20;
+	ramp[21].axis = true;
+	ramp[21].color = White;
+	App->physics->AddBody(ramp[21], 0);
+
+	ramp[22].SetPos(256, 45, 436);
+	ramp[22].SetRotation(120.0f, { 1,0,0 });
+	ramp[22].size.x = 250;
+	ramp[22].size.y = 2;
+	ramp[22].size.z = 20;
+	ramp[22].axis = true;
+	ramp[22].color = Black;
+	App->physics->AddBody(ramp[22], 0);
+
+	ramp[23].SetPos(256, 51, 442);
+	ramp[23].SetRotation(140.0f, { 1,0,0 });
+	ramp[23].size.x = 250;
+	ramp[23].size.y = 2;
+	ramp[23].size.z = 20;
+	ramp[23].axis = true;
+	ramp[23].color = White;
+	App->physics->AddBody(ramp[23], 0);
+
+	ramp[24].SetPos(256, 54, 448);
+	ramp[24].SetRotation(160.0f, { 1,0,0 });
+	ramp[24].size.x = 250;
+	ramp[24].size.y = 2;
+	ramp[24].size.z = 20;
+	ramp[24].axis = true;
+	ramp[24].color = Black;
+	App->physics->AddBody(ramp[24], 0);
+
+	ramp[25].SetPos(256, 56, 456);
+	ramp[25].SetRotation(180.0f, { 1,0,0 });
+	ramp[25].size.x = 250;
+	ramp[25].size.y = 2;
+	ramp[25].size.z = 20;
+	ramp[25].axis = true;
+	ramp[25].color = White;
+	App->physics->AddBody(ramp[25], 0);
+
+	ramp[26].SetPos(256, 0, 468);
+	ramp[26].SetRotation(-20.0f, { 1,0,0 });
+	ramp[26].size.x = 250;
+	ramp[26].size.y = 2;
+	ramp[26].size.z = 20;
+	ramp[26].axis = true;
+	ramp[26].color = White;
+	App->physics->AddBody(ramp[26], 0);
+
+	ramp[27].SetPos(256, 4, 474);
+	ramp[27].SetRotation(-40.0f, { 1,0,0 });
+	ramp[27].size.x = 250;
+	ramp[27].size.y = 2;
+	ramp[27].size.z = 20;
+	ramp[27].axis = true;
+	ramp[27].color = Black;
+	App->physics->AddBody(ramp[27], 0);
+
+	ramp[28].SetPos(256, 10, 480);
+	ramp[28].SetRotation(-60.0f, { 1,0,0 });
+	ramp[28].size.x = 250;
+	ramp[28].size.y = 2;
+	ramp[28].size.z = 20;
+	ramp[28].axis = true;
+	ramp[28].color = White;
+	App->physics->AddBody(ramp[28], 0);
+
+	ramp[29].SetPos(256, 20, 485);
+	ramp[29].SetRotation(-80.0f, { 1,0,0 });
+	ramp[29].size.x = 250;
+	ramp[29].size.y = 2;
+	ramp[29].size.z = 20;
+	ramp[29].axis = true;
+	ramp[29].color = Black;
+	App->physics->AddBody(ramp[29], 0);
+
+	ramp[30].SetPos(256, 35, 485);
+	ramp[30].SetRotation(-100.0f, { 1,0,0 });
+	ramp[30].size.x = 250;
+	ramp[30].size.y = 2;
+	ramp[30].size.z = 20;
+	ramp[30].axis = true;
+	ramp[30].color = White;
+	App->physics->AddBody(ramp[30], 0);
+
+	ramp[31].SetPos(256, 45, 480);
+	ramp[31].SetRotation(-120.0f, { 1,0,0 });
+	ramp[31].size.x = 250;
+	ramp[31].size.y = 2;
+	ramp[31].size.z = 20;
+	ramp[31].axis = true;
+	ramp[31].color = Black;
+	App->physics->AddBody(ramp[31], 0);
+
+	ramp[32].SetPos(256, 51, 474);
+	ramp[32].SetRotation(-140.0f, { 1,0,0 });
+	ramp[32].size.x = 250;
+	ramp[32].size.y = 2;
+	ramp[32].size.z = 20;
+	ramp[32].axis = true;
+	ramp[32].color = White;
+	App->physics->AddBody(ramp[32], 0);
+
+	ramp[33].SetPos(256, 54, 468);
+	ramp[33].SetRotation(-160.0f, { 1,0,0 });
+	ramp[33].size.x = 250;
+	ramp[33].size.y = 2;
+	ramp[33].size.z = 20;
+	ramp[33].axis = true;
+	ramp[33].color = Black;
+	App->physics->AddBody(ramp[33], 0);
 
 	//Limits-------------------
 	limits[0].SetPos(256, 0, 56);
@@ -734,7 +892,7 @@ update_status ModuleSceneIntro::Update(float dt)
 		}
 	}
 	
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 40; i++)
 	{
 		ramp[i].Render();
 	}

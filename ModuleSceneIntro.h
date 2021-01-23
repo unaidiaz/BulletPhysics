@@ -52,7 +52,7 @@ public:
 	Cube wall3;
 	Cube wall4;
 	Cube sensor[10];
-	Cube ramp[20];
+	Cube ramp[40];
 	Cube limits[100];
 	Cube flag[3];
 
