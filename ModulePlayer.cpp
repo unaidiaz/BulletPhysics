@@ -264,16 +264,7 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[16].color = Pink;
 			App->scene_intro->limits[17].color = Pink;
 			App->scene_intro->limits[60].color = Pink;
-			App->scene_intro->limits[37].color = Red;
-			App->scene_intro->limits[38].color = Red;
-			App->scene_intro->limits[41].color = Red;
-			App->scene_intro->limits[42].color = Red;
-			App->scene_intro->limits[45].color = Red;
-			App->scene_intro->limits[46].color = Red;
-			App->scene_intro->limits[52].color = Red;
-			App->scene_intro->limits[53].color = Red;
-			App->scene_intro->limits[49].color = Red;
-			App->scene_intro->limits[50].color = Red;
+
 		}
 
 		if (App->scene_intro->lap == 3)
@@ -297,16 +288,6 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[16].color = Cyan;
 			App->scene_intro->limits[17].color = Cyan;
 			App->scene_intro->limits[60].color = Cyan;
-			App->scene_intro->limits[37].color = Red;
-			App->scene_intro->limits[38].color = Red;
-			App->scene_intro->limits[41].color = Red;
-			App->scene_intro->limits[42].color = Red;
-			App->scene_intro->limits[45].color = Red;
-			App->scene_intro->limits[46].color = Red;
-			App->scene_intro->limits[52].color = Red;
-			App->scene_intro->limits[53].color = Red;
-			App->scene_intro->limits[49].color = Red;
-			App->scene_intro->limits[50].color = Red;
 		}
 
 		if (App->scene_intro->lap == 4)
@@ -366,14 +347,9 @@ update_status ModulePlayer::Update(float dt)
 
 	if ((App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE) || App->camera->finish == true)
 	{
-		if (vehicle->GetKmh() > 0)
-		{
-			acceleration = vehicle->info.mass * -30 * 0.1f;
-		}
-		else if (vehicle->GetKmh() < 0)
-		{
-			acceleration = -vehicle->info.mass * -30 * 0.1f;
-		}
+		btVector3 vel = vehicle->body->getLinearVelocity();
+		float friction = 0.99f;
+		vehicle->body->setLinearVelocity(btVector3(vel.getX() * friction, vel.getY(), vel.getZ() * friction));
 	}
 
 	vehicle->ApplyEngineForce(acceleration);
@@ -385,11 +361,6 @@ update_status ModulePlayer::Update(float dt)
 	char title[80];
 	sprintf_s(title, "%.1f Km/h --- Lap %d --- Time Left %d", vehicle->GetKmh(), App->scene_intro->lap, App->scene_intro->timer);
 	App->window->SetTitle(title);
-
-	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN)
-	{
-		App->camera->finish = !App->camera->finish;
-	}
 
 	return UPDATE_CONTINUE;
 }
@@ -408,6 +379,14 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 			App->scene_intro->sensor[1].wire = false;
 			App->scene_intro->limits[37].color = Green;
 			App->scene_intro->limits[38].color = Green;
+			App->scene_intro->limits[41].color = Red;
+			App->scene_intro->limits[42].color = Red;
+			App->scene_intro->limits[45].color = Red;
+			App->scene_intro->limits[46].color = Red;
+			App->scene_intro->limits[52].color = Red;
+			App->scene_intro->limits[53].color = Red;
+			App->scene_intro->limits[49].color = Red;
+			App->scene_intro->limits[50].color = Red;
 		}
 	}
 	else if (body2->id == 3 && App->scene_intro->sensor[1].wire == false)
@@ -419,6 +398,8 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		App->scene_intro->sensor[2].wire = false;
 		App->scene_intro->limits[41].color = Green;
 		App->scene_intro->limits[42].color = Green;
+		App->scene_intro->limits[37].color = Red;
+		App->scene_intro->limits[38].color = Red;
 	}
 	else if (body2->id == 4 && App->scene_intro->sensor[2].wire == false)
 	{
