@@ -22,6 +22,7 @@ bool ModulePlayer::Start()
 	checkpointFx = App->audio->LoadFx("Assets/checkpoint.wav");
 	startFx = App->audio->LoadFx("Assets/start.wav");
 	turboFx = App->audio->LoadFx("Assets/turbo.wav");
+	restartButtonFx = App->audio->LoadFx("Assets/press_u.wav");
 	canMove = false;
 	playMusic = true;
 	turboSoundActive = true;
@@ -164,6 +165,10 @@ update_status ModulePlayer::Update(float dt)
 
 		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT && canMove == true)
 		{
+			if (slow == true)
+			{
+				vehicle->body->setLinearVelocity(vehicle->body->getLinearVelocity() / 1.03f);
+			}
 			acceleration = MAX_ACCELERATION * 5;
 		}
 
@@ -187,6 +192,10 @@ update_status ModulePlayer::Update(float dt)
 			}
 			else
 			{
+				if (slow == true)
+				{
+					vehicle->body->setLinearVelocity(vehicle->body->getLinearVelocity() / 1.03f);
+				}
 				acceleration = -MAX_ACCELERATION * 5;
 			}
 		}
@@ -210,12 +219,6 @@ update_status ModulePlayer::Update(float dt)
 		if (turboTimer > 0)
 		{
 			acceleration = MAX_ACCELERATION * 9;
-		}
-
-		if (App->scene_intro->lap == 3)
-		{
-			App->camera->finish = true;
-			App->audio->PlayMusic("Assets/win.ogg", 0.0f);
 		}
 
 		if (App->scene_intro->lap == 1)
@@ -258,10 +261,17 @@ update_status ModulePlayer::Update(float dt)
 			App->scene_intro->limits[17].color = Pink;
 		}
 
+		if (App->scene_intro->lap == 3)
+		{
+			App->camera->finish = true;
+			App->audio->PlayMusic("Assets/win.ogg", 0.0f);
+			App->audio->PlayFx(restartButtonFx);
+		}
 		if (App->scene_intro->timer <= 0)
 		{
 			App->camera->finish = true;
 			App->audio->PlayMusic("Assets/lose.ogg", 0.0f);
+			App->audio->PlayFx(restartButtonFx);
 		}
 
 		btVector3 airControl;
@@ -302,32 +312,9 @@ update_status ModulePlayer::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
-	{
-		App->audio->PlayMusic("Assets/silence.ogg");
-		turn = 0;
-		acceleration = 0;
-		vehicle->SetPos(40, 0, 230);
-		btQuaternion q;
-		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
-		vehicle->SetRotation(q);
-		App->scene_intro->lap = 0;
-		App->scene_intro->passedCheckpoints = 0;
-		App->scene_intro->timer = INITIAL_TIME;
-		App->scene_intro->sensor[0].wire = true;
-		App->scene_intro->sensor[1].wire = false;
-		App->scene_intro->sensor[2].wire = true;
-		App->scene_intro->sensor[3].wire = true;
-		App->scene_intro->sensor[4].wire = true;
-		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
-		canMove = false;
-		App->scene_intro->flag[0].color = Black;
-		App->scene_intro->flag[1].color = Black;
-		App->scene_intro->flag[2].color = Black;
-		App->camera->finish = false;
-		playMusic = true;
-		App->audio->PlayFx(startFx);
-	}
+	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) restart();
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) checkpointReapear(App->scene_intro->passedCheckpoints);
+
 
 	if ((App->input->GetKey(SDL_SCANCODE_UP) == KEY_IDLE && App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_IDLE) || App->camera->finish == true)
 	{
@@ -416,5 +403,78 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 			turboSoundActive = false;
 		}
 		turboTimer = 2;
+	}
+	else if (body2->id == 8)
+	{
+		slow = true;
+	}
+}
+
+void ModulePlayer::restart()
+{
+	App->audio->PlayMusic("Assets/silence.ogg");
+	turn = 0;
+	acceleration = 0;
+	vehicle->SetPos(40, 0, 230);
+	btQuaternion q;
+	q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+	vehicle->SetRotation(q);
+	App->scene_intro->lap = 0;
+	App->scene_intro->passedCheckpoints = 0;
+	App->scene_intro->timer = INITIAL_TIME;
+	App->scene_intro->sensor[0].wire = true;
+	App->scene_intro->sensor[1].wire = false;
+	App->scene_intro->sensor[2].wire = true;
+	App->scene_intro->sensor[3].wire = true;
+	App->scene_intro->sensor[4].wire = true;
+	vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+	canMove = false;
+	App->scene_intro->flag[0].color = Black;
+	App->scene_intro->flag[1].color = Black;
+	App->scene_intro->flag[2].color = Black;
+	App->camera->finish = false;
+	playMusic = true;
+	App->audio->PlayFx(startFx);
+}
+
+void ModulePlayer::checkpointReapear(int checkpointPassed)
+{
+	btQuaternion q;
+
+	switch (checkpointPassed)
+	{
+	case 0:
+		turn = 0;
+		acceleration = 0;
+		vehicle->SetPos(40, 0, 230);
+		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetRotation(q);
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		break;
+	case 1:
+		turn = 0;
+		acceleration = 0;
+		vehicle->SetPos(40, 0, 230);
+		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetRotation(q);
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		break;
+	case 2:
+		turn = 0;
+		acceleration = 0;
+		vehicle->SetPos(40, 0, 230);
+
+		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetRotation(q);
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		break;
+	case 3:
+		turn = 0;
+		acceleration = 0;
+		vehicle->SetPos(40, 0, 230);
+		q.setEuler(btScalar(180 * DEGTORAD), btScalar(0), btScalar(0));
+		vehicle->SetRotation(q);
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		break;
 	}
 }

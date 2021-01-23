@@ -4,6 +4,7 @@
 #include "PhysBody3D.h"
 #include "PhysVehicle3D.h"
 #include "Primitive.h"
+#include "ModulePlayer.h"
 
 #ifdef _DEBUG
 	#pragma comment (lib, "Bullet/libx86/BulletDynamics_debug.lib")
@@ -103,6 +104,10 @@ update_status ModulePhysics3D::PreUpdate(float dt)
 					item = item->next;
 				}
 			}
+		}
+		else
+		{
+			App->player->slow = false;
 		}
 	}
 

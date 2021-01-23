@@ -22,6 +22,9 @@ public:
 	bool CleanUp();
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2) override;
 
+	void restart();
+	void checkpointReapear(int checkpointPassed);
+
 public:
 	Timer jump_cooldown;
 	PhysVehicle3D* vehicle;
@@ -31,10 +34,12 @@ public:
 	uint turboTimer;
 	bool canMove;
 	bool playMusic;
+	bool slow;
 
 	int checkpointFx;
 	int metaFx;
 	int startFx;
 	int turboFx;
+	int restartButtonFx;
 	bool turboSoundActive;
 };
