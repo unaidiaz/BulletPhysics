@@ -58,7 +58,7 @@ bool ModuleSceneIntro::Start()
 	//Borders----------------------
 	limits[10].SetPos(0, 0, 256);
 	limits[10].size.x = 9;
-	limits[10].size.y = 4;
+	limits[10].size.y = 6;
 	limits[10].size.z = 512;
 	limits[10].axis = false;
 	limits[10].color.Set(255, 0, 0);
@@ -66,7 +66,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[11].SetPos(512, 0, 256);
 	limits[11].size.x = 9;
-	limits[11].size.y = 4;
+	limits[11].size.y = 6;
 	limits[11].size.z = 512;
 	limits[11].axis = false;
 	limits[11].color.Set(255, 0, 0);
@@ -74,7 +74,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[12].SetPos(256, 0, 0);
 	limits[12].size.x = 512;
-	limits[12].size.y = 4;
+	limits[12].size.y = 6;
 	limits[12].size.z = 9;
 	limits[12].axis = false;
 	limits[12].color.Set(255, 0, 0);
@@ -82,7 +82,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[13].SetPos(256, 0, 512);
 	limits[13].size.x = 512;
-	limits[13].size.y = 4;
+	limits[13].size.y = 6;
 	limits[13].size.z = 9;
 	limits[13].axis = false;
 	limits[13].color.Set(255, 0, 0);
@@ -531,7 +531,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[18].SetPos(256, 0, 56);
 	limits[18].size.x = 51;
-	limits[18].size.y = 4;
+	limits[18].size.y = 6;
 	limits[18].size.z = 115;
 	limits[18].axis = true;
 	limits[18].color.Set(225, 0, 0);
@@ -539,7 +539,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[19].SetPos(396, 0, 135);
 	limits[19].size.x = 51;
-	limits[19].size.y = 4;
+	limits[19].size.y = 6;
 	limits[19].size.z = 83;
 	limits[19].axis = true;
 	limits[19].color.Set(225, 0, 0);
@@ -547,7 +547,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[20].SetPos(109, 0, 187);
 	limits[20].size.x = 47;
-	limits[20].size.y = 4;
+	limits[20].size.y = 6;
 	limits[20].size.z = 199;
 	limits[20].axis = true;
 	limits[20].color.Set(225, 0, 0);
@@ -555,7 +555,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[21].SetPos(103, 0, 327);
 	limits[21].size.x = 35;
-	limits[21].size.y = 4;
+	limits[21].size.y = 6;
 	limits[21].size.z = 95;
 	limits[21].axis = true;
 	limits[21].color.Set(225, 0, 0);
@@ -563,7 +563,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[23].SetPos(255, 0, 376);
 	limits[23].size.x = 339;
-	limits[23].size.y = 4;
+	limits[23].size.y = 6;
 	limits[23].size.z = 13;
 	limits[23].axis = true;
 	limits[23].color.Set(225, 0, 0);
@@ -571,7 +571,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[24].SetPos(255, 0, 440);
 	limits[24].size.x = 339;
-	limits[24].size.y = 4;
+	limits[24].size.y = 6;
 	limits[24].size.z = 13;
 	limits[24].axis = true;
 	limits[24].color.Set(225, 0, 0);
@@ -579,7 +579,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[25].SetPos(462, 0, 260);
 	limits[25].size.x = 104;
-	limits[25].size.y = 4;
+	limits[25].size.y = 6;
 	limits[25].size.z = 27;
 	limits[25].axis = true;
 	limits[25].color.Set(225, 0, 0);
@@ -587,7 +587,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[26].SetPos(369, 0, 267);
 	limits[26].size.x = 91;
-	limits[26].size.y = 4;
+	limits[26].size.y = 6;
 	limits[26].size.z = 13;
 	limits[26].axis = true;
 	limits[26].color.Set(225, 0, 0);
@@ -595,7 +595,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[27].SetPos(328, 0, 280);
 	limits[27].size.x = 9;
-	limits[27].size.y = 4;
+	limits[27].size.y = 6;
 	limits[27].size.z = 21;
 	limits[27].axis = true;
 	limits[27].color.Set(225, 0, 0);
@@ -603,7 +603,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[28].SetPos(285, 0, 286);
 	limits[28].size.x = 85;
-	limits[28].size.y = 4;
+	limits[28].size.y = 6;
 	limits[28].size.z = 9;
 	limits[28].axis = true;
 	limits[28].color.Set(225, 0, 0);
@@ -611,7 +611,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[29].SetPos(182, 0, 202);
 	limits[29].size.x = 109;
-	limits[29].size.y = 4;
+	limits[29].size.y = 6;
 	limits[29].size.z = 25;
 	limits[29].axis = true;
 	limits[29].color.Set(225, 0, 0);
@@ -619,7 +619,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[30].SetPos(289, 0, 196);
 	limits[30].size.x = 113;
-	limits[30].size.y = 4;
+	limits[30].size.y = 6;
 	limits[30].size.z = 13;
 	limits[30].axis = true;
 	limits[30].color.Set(225, 0, 0);
@@ -627,7 +627,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[31].SetPos(353, 0, 180);
 	limits[31].size.x = 43;
-	limits[31].size.y = 4;
+	limits[31].size.y = 6;
 	limits[31].size.z = 28;
 	limits[31].axis = true;
 	limits[31].color.Set(225, 0, 0);
@@ -651,7 +651,7 @@ bool ModuleSceneIntro::Start()
 
 	limits[57].SetPos(265, 0, 329);
 	limits[57].size.x = 54;
-	limits[57].size.y = 4;
+	limits[57].size.y = 6;
 	limits[57].size.z = 9;
 	limits[57].axis = true;
 	limits[57].color.Set(255, 0, 0);
@@ -930,7 +930,6 @@ bool ModuleSceneIntro::Start()
 	physSensor->SetAsSensor(true);
 	physSensor->SetId(7);
 
-
 	flag[0].SetPos(30, 17, 214);
 	flag[0].size.x = 2;
 	flag[0].size.y = 2;
@@ -954,6 +953,194 @@ bool ModuleSceneIntro::Start()
 	flag[2].axis = true;
 	flag[2].color = Black;
 	App->physics->AddBody(flag[2], 0);
+
+	//Grass--------------------------------
+	sensor[9].SetPos(256, 1.5, 56);
+	sensor[9].size.x = 66;
+	sensor[9].size.y = 0.5;
+	sensor[9].size.z = 130;
+	sensor[9].axis = false;
+	sensor[9].wire = false;
+	sensor[9].color = Break;
+	physSensor = App->physics->AddBody(sensor[9], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[10].SetPos(396, 1.5, 135);
+	sensor[10].size.x = 66;
+	sensor[10].size.y = 0.5;
+	sensor[10].size.z = 98;
+	sensor[10].axis = false;
+	sensor[10].wire = false;
+	sensor[10].color = Break;
+	physSensor = App->physics->AddBody(sensor[10], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[11].SetPos(109, 1.5, 187);
+	sensor[11].size.x = 62;
+	sensor[11].size.y = 0.5;
+	sensor[11].size.z = 214;
+	sensor[11].axis = false;
+	sensor[11].wire = false;
+	sensor[11].color = Break;
+	physSensor = App->physics->AddBody(sensor[11], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[12].SetPos(103, 1.5, 327);
+	sensor[12].size.x = 50;
+	sensor[12].size.y = 0.5;
+	sensor[12].size.z = 110;
+	sensor[12].axis = false;
+	sensor[12].wire = false;
+	sensor[12].color = Break;
+	physSensor = App->physics->AddBody(sensor[12], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[13].SetPos(255, 1.5, 376);
+	sensor[13].size.x = 354;
+	sensor[13].size.y = 0.5;
+	sensor[13].size.z = 28;
+	sensor[13].axis = false;
+	sensor[13].wire = false;
+	sensor[13].color = Break;
+	physSensor = App->physics->AddBody(sensor[13], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[14].SetPos(255, 1.5, 440);
+	sensor[14].size.x = 354;
+	sensor[14].size.y = 0.5;
+	sensor[14].size.z = 28;
+	sensor[14].axis = false;
+	sensor[14].wire = false;
+	sensor[14].color = Break;
+	physSensor = App->physics->AddBody(sensor[14], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[15].SetPos(462, 1.5, 260);
+	sensor[15].size.x = 119;
+	sensor[15].size.y = 0.5;
+	sensor[15].size.z = 42;
+	sensor[15].axis = false;
+	sensor[15].wire = false;
+	sensor[15].color = Break;
+	physSensor = App->physics->AddBody(sensor[15], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[16].SetPos(369, 1.5, 267);
+	sensor[16].size.x = 106;
+	sensor[16].size.y = 0.5;
+	sensor[16].size.z = 28;
+	sensor[16].axis = false;
+	sensor[16].wire = false;
+	sensor[16].color = Break;
+	physSensor = App->physics->AddBody(sensor[16], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[17].SetPos(328, 1.5, 280);
+	sensor[17].size.x = 24;
+	sensor[17].size.y = 0.5;
+	sensor[17].size.z = 36;
+	sensor[17].axis = false;
+	sensor[17].wire = false;
+	sensor[17].color = Break;
+	physSensor = App->physics->AddBody(sensor[17], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[18].SetPos(285, 1.5, 286);
+	sensor[18].size.x = 100;
+	sensor[18].size.y = 0.5;
+	sensor[18].size.z = 24;
+	sensor[18].axis = false;
+	sensor[18].wire = false;
+	sensor[18].color = Break;
+	physSensor = App->physics->AddBody(sensor[18], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[19].SetPos(182, 1.5, 202);
+	sensor[19].size.x = 124;
+	sensor[19].size.y = 0.5;
+	sensor[19].size.z = 40;
+	sensor[19].axis = false;
+	sensor[19].wire = false;
+	sensor[19].color = Break;
+	physSensor = App->physics->AddBody(sensor[19], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[20].SetPos(289, 1.5, 196);
+	sensor[20].size.x = 128;
+	sensor[20].size.y = 0.5;
+	sensor[20].size.z = 28;
+	sensor[20].axis = false;
+	sensor[20].wire = false;
+	sensor[20].color = Break;
+	physSensor = App->physics->AddBody(sensor[20], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[21].SetPos(353, 1.5, 180);
+	sensor[21].size.x = 58;
+	sensor[21].size.y = 0.5;
+	sensor[21].size.z = 43;
+	sensor[21].axis = false;
+	sensor[21].wire = false;
+	sensor[21].color = Break;
+	physSensor = App->physics->AddBody(sensor[21], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[22].SetPos(0, 1.5, 256);
+	sensor[22].size.x = 24;
+	sensor[22].size.y = 0.5;
+	sensor[22].size.z = 512;
+	sensor[22].axis = false;
+	sensor[22].wire = false;
+	sensor[22].color = Break;
+	physSensor = App->physics->AddBody(sensor[22], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[23].SetPos(512, 1.5, 256);
+	sensor[23].size.x = 24;
+	sensor[23].size.y = 0.5;
+	sensor[23].size.z = 512;
+	sensor[23].axis = false;
+	sensor[23].wire = false;
+	sensor[23].color = Break;
+	physSensor = App->physics->AddBody(sensor[23], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[24].SetPos(256, 1.5, 0);
+	sensor[24].size.x = 512;
+	sensor[24].size.y = 0.5;
+	sensor[24].size.z = 24;
+	sensor[24].axis = false;
+	sensor[24].wire = false;
+	sensor[24].color = Break;
+	physSensor = App->physics->AddBody(sensor[24], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
+
+	sensor[25].SetPos(256, 1.5, 512);
+	sensor[25].size.x = 512;
+	sensor[25].size.y = 0.5;
+	sensor[25].size.z = 24;
+	sensor[25].axis = false;
+	sensor[25].wire = false;
+	sensor[25].color = Break;
+	physSensor = App->physics->AddBody(sensor[25], 0);
+	physSensor->SetAsSensor(true);
+	physSensor->SetId(8);
 
 	return ret;
 }
@@ -1012,7 +1199,7 @@ update_status ModuleSceneIntro::Update(float dt)
 		limits[i].Render();
 	}
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 30; i++)
 	{
 		sensor[i].Render();
 	}
