@@ -28,6 +28,7 @@ bool ModuleCamera3D::Start()
 
 	freeCamera = false;
 	finish = false;
+	firstPerson = false;
 
 	return ret;
 }
@@ -45,6 +46,23 @@ update_status ModuleCamera3D::Update(float dt)
 {
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
+	if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
+	{
+		if (firstPerson == true) firstPerson = false;
+		else firstPerson = true;
+	}
+
+	if (firstPerson == true && finish == false)
+	{
+		Position.x = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getX() - 10 * App->player->vehicle->vehicle->getForwardVector().getX();
+		Position.y = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getY() + 6 * App->player->vehicle->vehicle->getUpAxis();
+		Position.z = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getZ() - 5 * App->player->vehicle->vehicle->getForwardVector().getZ();
+
+		float x_value = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getX() + 10 * App->player->vehicle->vehicle->getForwardVector().getX();
+		float z_value = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getZ() + 10 * App->player->vehicle->vehicle->getForwardVector().getZ();
+
+		LookAt(vec3(x_value, 1, z_value));
+	}
 
 	if (finish == false)
 	{
@@ -53,7 +71,7 @@ update_status ModuleCamera3D::Update(float dt)
 			freeCamera = !freeCamera;
 		}
 
-		if (freeCamera == false)
+		if (freeCamera == false && firstPerson == false)
 		{
 			Position.x = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getX() - 15 * App->player->vehicle->vehicle->getForwardVector().getX();
 			Position.y = App->player->vehicle->vehicle->getChassisWorldTransform().getOrigin().getY() + 10 * App->player->vehicle->vehicle->getUpAxis();
