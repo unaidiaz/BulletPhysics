@@ -20,6 +20,7 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro assets");
 	bool ret = true;
 
+	starting = true;
 	passedCheckpoints = 0;
 	
 	//Walls----------------------
@@ -1188,23 +1189,24 @@ update_status ModuleSceneIntro::Update(float dt)
 
 	secondsSinceInit = INITIAL_TIME - timer;
 
-	if (secondsSinceInit == 2)
+	if (secondsSinceInit == 2 && starting == true)
 	{
 		flag[0].color = Red;
 	}
-	else if (secondsSinceInit == 3)
+	else if (secondsSinceInit == 3 && starting == true)
 	{
 		flag[1].color = Red;
 	}
-	else if (secondsSinceInit == 4)
+	else if (secondsSinceInit == 4 && starting == true)
 	{
 		flag[2].color = Red;
 	}
-	else if (secondsSinceInit == 5)
+	else if (secondsSinceInit == 5 && starting == true)
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			flag[i].color = Green;
+			starting = false;
 		}
 	}
 	

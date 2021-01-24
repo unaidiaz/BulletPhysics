@@ -61,5 +61,7 @@ public:
 	uint lap = 1;
 	uint secondsSinceInit;
 
+	bool starting;
+
 	int passedCheckpoints;
 };

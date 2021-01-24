@@ -22,7 +22,7 @@ public:
 	bool CleanUp();
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2) override;
 
-	void restart();
+	void Restart();
 	void checkpointReapear(int checkpointPassed);
 
 public:

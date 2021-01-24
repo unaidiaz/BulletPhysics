@@ -337,7 +337,7 @@ update_status ModulePlayer::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) restart();
+	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN) Restart();
 	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) checkpointReapear(App->scene_intro->passedCheckpoints);
 
 
@@ -454,10 +454,11 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	}
 }
 
-void ModulePlayer::restart()
+void ModulePlayer::Restart()
 {
 	App->audio->PlayMusic("Assets/silence.ogg");
 	turn = 0;
+	App->scene_intro->starting = true;
 	acceleration = 0;
 	vehicle->SetPos(40, 0, 230);
 	btQuaternion q;
